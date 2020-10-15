@@ -5,7 +5,7 @@ s195462
 4. Design the keyboard in xml
 5. Add GetStarted Activity
 6. Rules and score fragment
-7. Create a winner loser activity
+7. Create a winner loser activities
 
 
 
