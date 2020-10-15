@@ -31,20 +31,8 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="20dp"
-        android:text="textview1"
+        android:text="Guss"
         android:textColor="@color/black"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="46dp"
-        android:textColor="@color/black"
-        android:layout_gravity="center"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:gravity="center"
-        android:text="textview2"
         android:textSize="18sp" />
 
     <GridLayout

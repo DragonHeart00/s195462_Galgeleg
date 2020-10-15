@@ -32,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         //ViewPagerAdapter
-        viewPagerAdapter.addFragment(new RuleFragment(), "Fragment_1");
-        viewPagerAdapter.addFragment(new HomeFragment(), "Fragment_2");
-        viewPagerAdapter.addFragment(new ScoreFragment(), "Fragment_3");
+        viewPagerAdapter.addFragment(new RuleFragment(), "Rules");
+        viewPagerAdapter.addFragment(new HomeFragment(), "Home");
+        viewPagerAdapter.addFragment(new ScoreFragment(), "Score");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 

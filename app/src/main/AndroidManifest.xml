@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.S195462Galgeleg">
-        <activity android:name=".activities.GetStartActivity"></activity>
+        <activity android:name=".activities.LoserActivity"></activity>
+        <activity android:name=".activities.WinnerActivity" />
+        <activity android:name=".activities.GetStartActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
