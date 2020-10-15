@@ -13,16 +13,14 @@ import com.example.s195462galgeleg.R;
 import com.example.s195462galgeleg.activities.GetStartActivity;
 
 
-public class Fragment_1 extends Fragment {
-
+public class HomeFragment extends Fragment {
     private Button getStarted;
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-       View view = inflater.inflate(R.layout.fragment_1, container, false);
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         getStarted = view.findViewById(R.id.get_started);
 
@@ -38,8 +36,6 @@ public class Fragment_1 extends Fragment {
         });
 
 
-
-       return view;
+        return view;
     }
-
 }

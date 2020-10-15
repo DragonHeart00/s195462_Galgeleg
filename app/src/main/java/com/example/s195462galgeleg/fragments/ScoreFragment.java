@@ -10,14 +10,14 @@ import androidx.fragment.app.Fragment;
 import com.example.s195462galgeleg.R;
 
 
-public class Fragment_3 extends Fragment {
+public class ScoreFragment extends Fragment {
 
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_3, container, false);
+        View view = inflater.inflate(R.layout.fragment_score, container, false);
 
 
 

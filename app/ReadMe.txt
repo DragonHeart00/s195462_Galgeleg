@@ -4,5 +4,8 @@ s195462
 3. design the tab with three fragments "Tabbed with View Pager", i will use in in the game
 4. Design the keyboard in xml
 5. Add GetStarted Activity
+6. Rules and score fragment
+7. Create a winner loser activity
+
 
 

@@ -10,17 +10,19 @@ import androidx.fragment.app.Fragment;
 import com.example.s195462galgeleg.R;
 
 
-public class Fragment_2 extends Fragment {
+public class RuleFragment extends Fragment {
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_2, container, false);
+       View view = inflater.inflate(R.layout.fragment_rule, container, false);
 
 
 
-
-        return view;
+       return view;
     }
+
 }
