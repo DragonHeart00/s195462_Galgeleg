@@ -6,5 +6,6 @@ s195462
 5. Add GetStarted Activity
 6. Rules and score fragment
 7. Create a winner loser activities
-8. work with rules fragment, for now i will use text view to show rules
+8. Work with rules fragment, for now i will use text view to show rules
+9. Create welcome activity with required editText
 

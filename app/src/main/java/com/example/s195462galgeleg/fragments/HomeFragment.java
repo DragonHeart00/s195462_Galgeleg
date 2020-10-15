@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -15,6 +16,7 @@ import com.example.s195462galgeleg.activities.GetStartActivity;
 
 public class HomeFragment extends Fragment {
     private Button getStarted;
+    private TextView name;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -23,7 +25,10 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         getStarted = view.findViewById(R.id.get_started);
-
+        name = view.findViewById(R.id.name);
+        Intent intent=getActivity().getIntent();
+        String txtname = intent.getStringExtra("name");
+        name.setText("Welcome "+txtname + " to Hangman");
 
 
 
