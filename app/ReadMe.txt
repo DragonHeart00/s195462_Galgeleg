@@ -6,6 +6,7 @@ s195462
 5. Add GetStarted Activity
 6. Rules and score fragment
 7. Create a winner loser activities
+8. work with rules fragment, i will use WebView to get data from "https://da.wikipedia.org/wiki/Galgespil"
 
 
 
