@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">s195462 Galgeleg</string>
+    <string name="desc">Galgespil er et spil for to eller flere spillere. Det er typisk spillet på papir eller en på en tavle.
+                        Spillet går ud på at gætte et ord eller en sætning,
+                        hvor kun antallet af bogstaver er kendt, lidt i stil med Lykkehjulet.
+                        Der gættes på skift et bogstav ad gangen,
+                        og korrekte bogstaver bliver placeret på de respektive pladser i ordet eller sætningen.
+                        For hver gang, der gættes forkert bliver der tegnet en del af en galge med en hængt mand på papiret eller tavlen.
+                        Opgaven går ud på gætte hele ordet eller sætningen inden tegningen bliver færdiggjort.
+                        Mængden af streger der bliver bliver tegnet for hvert forkert gæt,
+                        og tegningen kompleksitet kan varieres for at give spillerne mere eller mindre tid.
+                        Strategien i spillet går ud på at gætte på de bogstaver, der bruges hyppigst på det respektive sprog,
+                        som spillet spilles på. Dvs. at bogstaver som e, s, r og t typisk optræder i danske ord.
+                        Personen der bestemmer ordet eller sætningen kan samtidig spekulere i at bruge ord,
+                        som har få eller ingen hyppige bogstaver, som f.eks. jazz.</string>
+
 </resources>

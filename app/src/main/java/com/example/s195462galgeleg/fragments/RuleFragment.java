@@ -14,15 +14,12 @@ public class RuleFragment extends Fragment {
 
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
        View view = inflater.inflate(R.layout.fragment_rule, container, false);
 
-
-
-       return view;
+        return view;
     }
 
 }

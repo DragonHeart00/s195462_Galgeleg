@@ -2,6 +2,7 @@ package com.example.s195462galgeleg;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
       //  getSupportActionBar().setTitle(getString(R.string.app_name));
       //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
         // Tabbed Activity
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.view_page);
@@ -38,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
+
+        //run "home fragment" first
+        viewPager.setCurrentItem(1);
 
 
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_rule);
