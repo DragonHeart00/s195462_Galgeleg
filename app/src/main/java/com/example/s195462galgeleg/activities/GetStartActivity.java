@@ -34,7 +34,6 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
         gussTekst = findViewById(R.id.guss);
         letterGrid = findViewById(R.id.gridLayout);
         galgelegImage = findViewById(R.id.imageView);
-        galgelegImage.setVisibility(galgelegImage.INVISIBLE);
 
 
 
@@ -70,28 +69,24 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
         letterButton.setVisibility(View.GONE);
 
 
-        galgelegImage.setVisibility(galgelegImage.VISIBLE);
-
         switch (galgelogik.getAntalForkerteBogstaver()){
+
             case 1:
-                galgelegImage.setImageResource(R.drawable.galge);
-                break;
-            case 2:
                 galgelegImage.setImageResource(R.drawable.forkert1);
                 break;
-            case 3:
+            case 2:
                 galgelegImage.setImageResource(R.drawable.forkert2);
                 break;
-            case 4:
+            case 3:
                 galgelegImage.setImageResource(R.drawable.forkert3);
                 break;
-            case 5:
+            case 4:
                 galgelegImage.setImageResource(R.drawable.forkert4);
                 break;
-            case 6:
+            case 5:
                 galgelegImage.setImageResource(R.drawable.forkert5);
                 break;
-            case 7:
+            case 6:
                 galgelegImage.setImageResource(R.drawable.forkert6);
                 break;
             default:

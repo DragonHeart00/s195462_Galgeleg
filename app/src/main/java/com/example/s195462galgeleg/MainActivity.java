@@ -22,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.tool_bar);
-        setSupportActionBar(toolbar);
-      //  getSupportActionBar().setTitle(getString(R.string.app_name));
-      //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       Toolbar toolbar = findViewById(R.id.tool_bar);
+       setSupportActionBar(toolbar);
+       getSupportActionBar().setTitle(getString(R.string.app_name));
+       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         // Tabbed Activity
