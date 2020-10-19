@@ -39,6 +39,7 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
 
         // guss word ******
         gussTekst.setText(galgelogik.getSynligtOrd());
+        galgelegImage.setVisibility(galgelegImage.INVISIBLE);
 
     }
 
@@ -65,6 +66,8 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
         galgelogik.gætBogstav(BogstavGæt);
 
 
+        galgelegImage.setVisibility(galgelegImage.VISIBLE);
+
         gussTekst.setText(galgelogik.getSynligtOrd());
         letterButton.setVisibility(View.GONE);
 
@@ -72,21 +75,24 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
         switch (galgelogik.getAntalForkerteBogstaver()){
 
             case 1:
-                galgelegImage.setImageResource(R.drawable.forkert1);
+                galgelegImage.setImageResource(R.drawable.galge);
                 break;
             case 2:
-                galgelegImage.setImageResource(R.drawable.forkert2);
+                galgelegImage.setImageResource(R.drawable.forkert1);
                 break;
             case 3:
-                galgelegImage.setImageResource(R.drawable.forkert3);
+                galgelegImage.setImageResource(R.drawable.forkert2);
                 break;
             case 4:
-                galgelegImage.setImageResource(R.drawable.forkert4);
+                galgelegImage.setImageResource(R.drawable.forkert3);
                 break;
             case 5:
-                galgelegImage.setImageResource(R.drawable.forkert5);
+                galgelegImage.setImageResource(R.drawable.forkert4);
                 break;
             case 6:
+                galgelegImage.setImageResource(R.drawable.forkert5);
+                break;
+            case 7:
                 galgelegImage.setImageResource(R.drawable.forkert6);
                 break;
             default:

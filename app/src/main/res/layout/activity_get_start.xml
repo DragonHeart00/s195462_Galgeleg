@@ -32,7 +32,7 @@
         android:layout_marginRight="30dp"
         android:layout_marginTop="20dp"
         android:text="Guss"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="18sp" />
 
     <GridLayout
@@ -56,6 +56,7 @@
             android:layout_width="43dp"
             android:layout_row="0"
             android:layout_column="0"
+            android:textColor="@color/white"
             android:width="8dp"
             android:onClick="onClick"
             android:text="A" />
@@ -68,6 +69,7 @@
             android:layout_row="0"
             android:layout_column="1"
             android:width="8dp"
+            android:textColor="@color/white"
             android:onClick="onClick"
             android:text="B" />
 
@@ -78,6 +80,7 @@
             android:layout_row="0"
             android:layout_column="2"
             android:width="8dp"
+            android:textColor="@color/white"
             android:onClick="onClick"
             android:text="C" />
 
@@ -88,6 +91,7 @@
             android:layout_width="43dp"
             android:layout_row="0"
             android:layout_column="3"
+            android:textColor="@color/white"
             android:width="8dp"
             android:onClick="onClick"
             android:text="D" />
@@ -99,6 +103,7 @@
             android:layout_width="43dp"
             android:layout_row="0"
             android:layout_column="4"
+            android:textColor="@color/white"
             android:width="8dp"
             android:onClick="onClick"
             android:text="E" />
@@ -109,6 +114,7 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="43dp"
             android:layout_row="0"
+            android:textColor="@color/white"
             android:layout_column="5"
             android:width="8dp"
             android:onClick="onClick"
@@ -121,6 +127,7 @@
             android:layout_width="43dp"
             android:layout_row="0"
             android:layout_column="6"
+            android:textColor="@color/white"
             android:width="8dp"
             android:onClick="onClick"
             android:text="G" />
@@ -132,6 +139,7 @@
             android:layout_width="43dp"
             android:layout_row="0"
             android:layout_column="7"
+            android:textColor="@color/white"
             android:width="8dp"
             android:onClick="onClick"
             android:text="H" />
@@ -143,6 +151,7 @@
             android:layout_width="43dp"
             android:layout_row="1"
             android:layout_column="0"
+            android:textColor="@color/white"
             android:width="8dp"
             android:onClick="onClick"
             android:text="I" />
@@ -154,6 +163,7 @@
             android:layout_width="43dp"
             android:layout_row="1"
             android:layout_column="1"
+            android:textColor="@color/white"
             android:width="8dp"
             android:onClick="onClick"
             android:text="J" />
@@ -165,6 +175,7 @@
             android:layout_width="43dp"
             android:layout_row="1"
             android:layout_column="2"
+            android:textColor="@color/white"
             android:width="8dp"
             android:onClick="onClick"
             android:text="K" />
@@ -176,6 +187,7 @@
             android:layout_width="43dp"
             android:layout_row="1"
             android:layout_column="3"
+            android:textColor="@color/white"
             android:width="8dp"
             android:onClick="onClick"
             android:text="L" />
@@ -186,6 +198,7 @@
             android:layout_width="43dp"
             android:layout_row="1"
             android:layout_column="4"
+            android:textColor="@color/white"
             android:width="8dp"
             android:onClick="onClick"
             android:text="M" />
@@ -196,6 +209,7 @@
             android:layout_width="43dp"
             android:layout_row="1"
             android:layout_column="5"
+            android:textColor="@color/white"
             android:width="8dp"
             android:onClick="onClick"
             android:text="N" />
@@ -206,6 +220,7 @@
             android:layout_width="43dp"
             android:layout_row="1"
             android:layout_column="6"
+            android:textColor="@color/white"
             android:width="8dp"
             android:onClick="onClick"
             android:text="O" />
@@ -217,6 +232,7 @@
             android:layout_row="1"
             android:layout_column="7"
             android:width="8dp"
+            android:textColor="@color/white"
             android:onClick="onClick"
             android:text="P" />
 
@@ -226,6 +242,7 @@
             android:layout_width="43dp"
             android:layout_row="2"
             android:layout_column="0"
+            android:textColor="@color/white"
             android:width="8dp"
             android:onClick="onClick"
             android:text="Q" />
@@ -237,6 +254,7 @@
             android:layout_width="43dp"
             android:layout_row="2"
             android:layout_column="1"
+            android:textColor="@color/white"
             android:width="8dp"
             android:onClick="onClick"
             android:text="R" />
@@ -248,6 +266,7 @@
             android:layout_row="2"
             android:layout_column="2"
             android:width="8dp"
+            android:textColor="@color/white"
             android:onClick="onClick"
             android:text="S" />
 
@@ -259,6 +278,7 @@
             android:layout_column="3"
             android:width="8dp"
             android:onClick="onClick"
+            android:textColor="@color/white"
             android:text="T" />
 
         <Button
@@ -268,6 +288,7 @@
             android:layout_row="2"
             android:layout_column="4"
             android:width="8dp"
+            android:textColor="@color/white"
             android:onClick="onClick"
             android:text="U" />
 
@@ -280,6 +301,7 @@
             android:layout_column="5"
             android:width="8dp"
             android:onClick="onClick"
+            android:textColor="@color/white"
             android:text="V" />
 
 
@@ -291,6 +313,7 @@
             android:layout_column="6"
             android:width="8dp"
             android:onClick="onClick"
+            android:textColor="@color/white"
             android:text="W" />
 
 
@@ -302,6 +325,7 @@
             android:layout_column="7"
             android:width="8dp"
             android:onClick="onClick"
+            android:textColor="@color/white"
             android:text="X" />
 
         <Button
@@ -312,6 +336,7 @@
             android:layout_column="0"
             android:width="8dp"
             android:onClick="onClick"
+            android:textColor="@color/white"
             android:text="Y" />
 
 
@@ -323,6 +348,7 @@
             android:layout_column="1"
             android:width="8dp"
             android:onClick="onClick"
+            android:textColor="@color/white"
             android:text="Z" />
 
 
@@ -332,6 +358,7 @@
             android:layout_width="43dp"
             android:layout_row="3"
             android:layout_column="2"
+            android:textColor="@color/white"
             android:width="8dp"
             android:onClick="onClick"
             android:text="å" />
@@ -345,6 +372,7 @@
             android:layout_column="3"
             android:width="8dp"
             android:onClick="onClick"
+            android:textColor="@color/white"
             android:text="Æ" />
 
 
@@ -355,6 +383,7 @@
             android:layout_row="3"
             android:layout_column="4"
             android:width="8dp"
+            android:textColor="@color/white"
             android:onClick="onClick"
             android:text="Ø" />
 
