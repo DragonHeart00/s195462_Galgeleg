@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#8F3D3D"
+    android:background="@color/galgeleg"
     tools:context=".activities.GetStartActivity">
 
 

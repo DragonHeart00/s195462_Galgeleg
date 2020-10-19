@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
        Toolbar toolbar = findViewById(R.id.tool_bar);
        setSupportActionBar(toolbar);
        getSupportActionBar().setTitle(getString(R.string.app_name));
-       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+     //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         // Tabbed Activity

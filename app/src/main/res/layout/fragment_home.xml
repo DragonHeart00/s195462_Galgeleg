@@ -4,16 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CCC1C1"
+    android:background="@color/galgeleg"
     tools:context=".fragments.HomeFragment">
 
 
     <Button
         android:id="@+id/get_started"
-        android:layout_width="239dp"
-        android:layout_height="69dp"
+        android:layout_width="129dp"
+        android:layout_height="56dp"
         android:layout_marginBottom="256dp"
-        android:text="Button"
+        android:background="@color/black"
+        android:text="Play"
+        android:textSize="22dp"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,12 +25,12 @@
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="302dp"
+        android:layout_height="126dp"
         android:layout_marginTop="172dp"
-        android:textSize="14dp"
-        android:textColor="@color/black"
         android:text="TextView"
+        android:textColor="@color/white"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
