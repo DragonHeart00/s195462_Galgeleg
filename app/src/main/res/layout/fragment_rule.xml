@@ -19,9 +19,9 @@
         android:layout_height="78dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="Regler "
+        android:text="Galgeleg Version I "
         android:textColor="@color/black"
-        android:textSize="45dp" />
+        android:textSize="30dp" />
 
 
 
