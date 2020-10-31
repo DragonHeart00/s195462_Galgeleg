@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.s195462galgeleg.R;
 import com.example.s195462galgeleg.logic.Galgelogik;
@@ -110,7 +111,9 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
 
         } else if (galgelogik.erSpilletTabt()){
             //Send user to LoserActivity
+            Toast.makeText(getApplicationContext(),galgelogik.getOrdet(),Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, LoserActivity.class);
+            intent.putExtra("data",galgelogik.getOrdet());
             startActivity(intent);
             finish();
 
