@@ -52,14 +52,10 @@ public class ScoreFragment extends Fragment {
         System.out.println("Current time => " + c);
         SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
         String formattedDate = df.format(c);
-
-
-        Player player1 = new Player(gemtTekst, formattedDate);
+        Player player1 = new Player(gemtTekst,formattedDate);
 
 
         playerList.add(player1);
-
-
 
 
 
