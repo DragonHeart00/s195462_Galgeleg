@@ -11,5 +11,6 @@ s195462
 10. Create recyclerview: itemLayout.xml, adapter class, player class, recyclerview inside scoreFragment
 11. SharedPreferences added to welcome activity and score fragment
 12. work with design, i think i will not write any more code for the first handed in):
-13. I will create textView in LoserActivity to show the right word
-14. I prefer to use room database instead of sharedPreferences
+13. create textView in LoserActivity to show the right word
+14. create textView in WinnerActivity to show Number of Incorrect Letters
+15. I prefer to use room database instead of sharedPreferences

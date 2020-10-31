@@ -105,6 +105,7 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
         if (galgelogik.erSpilletVundet()) {
             //Send user to WinnerActivity
             Intent intent = new Intent(this, WinnerActivity.class);
+            intent.putExtra("AntalForkerteBogstaver",galgelogik.getAntalForkerteBogstaver()+"");
             startActivity(intent);
             finish();
 
