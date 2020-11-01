@@ -17,7 +17,7 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/delete_user"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:textColor="@color/white"

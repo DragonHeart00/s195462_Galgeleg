@@ -5,6 +5,7 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -58,9 +59,28 @@ public class WelcomeActivity extends AppCompatActivity {
                     Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
                     intent.putExtra("name",str);
                     startActivity(intent);
-                    appDatabase.playerDAO().insertAll(new Player(str,formattedDate));
+                    //appDatabase.playerDAO().insertAll(new Player(str,formattedDate));
+                    Player player = new Player(str, formattedDate);
+                    InsertAsyncTask insertAsyncTask = new InsertAsyncTask();
+                    insertAsyncTask.execute(player);
                 }
             }
         });
+
     }
+
+
+    class InsertAsyncTask extends AsyncTask<Player, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Player... players) {
+
+            AppDatabase.getInstance(getApplicationContext())
+                    .playerDAO()
+                    .insertAll(players[0]);
+
+            return null;
+        }
+    }
+
 }

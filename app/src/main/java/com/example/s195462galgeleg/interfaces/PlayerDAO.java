@@ -1,5 +1,6 @@
 package com.example.s195462galgeleg.interfaces;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -15,4 +16,7 @@ public interface PlayerDAO {
 
     @Insert
     void insertAll(Player... players);
+
+    @Delete
+    void deletePlayer(Player player);
 }

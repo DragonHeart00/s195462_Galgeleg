@@ -31,6 +31,9 @@ public class Player {
         this.date = date;
     }
 
+    public Player() {
+    }
+
     public int getId() {
         return id;
     }
@@ -62,5 +65,15 @@ public class Player {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+
+    @Override
+    public String toString() {
+        return "\nplayList{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", date=" + date +
+                '}';
     }
 }
