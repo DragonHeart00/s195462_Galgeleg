@@ -27,7 +27,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private Button getStarted;
     private EditText name;
-    AppDatabase appDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +35,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
         getStarted = findViewById(R.id.start_button);
         name = findViewById(R.id.editTextTextPersonName);
-
-        // insert database to recycler view
-        appDatabase = Room.databaseBuilder(getApplicationContext(),AppDatabase.class,"playList")
-                .allowMainThreadQueries().build();
 
         Date c = Calendar.getInstance().getTime();
         System.out.println("Current time => " + c);
@@ -59,16 +54,13 @@ public class WelcomeActivity extends AppCompatActivity {
                     Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
                     intent.putExtra("name",str);
                     startActivity(intent);
-                    //appDatabase.playerDAO().insertAll(new Player(str,formattedDate));
                     Player player = new Player(str, formattedDate);
                     InsertAsyncTask insertAsyncTask = new InsertAsyncTask();
                     insertAsyncTask.execute(player);
                 }
             }
         });
-
     }
-
 
     class InsertAsyncTask extends AsyncTask<Player, Void, Void> {
 
@@ -82,5 +74,4 @@ public class WelcomeActivity extends AppCompatActivity {
             return null;
         }
     }
-
 }

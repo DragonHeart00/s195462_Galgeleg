@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey;
 
 
 //create database
-@Entity (tableName = "playList")
+@Entity (tableName = "playerLog")
 public class Player {
 
     @PrimaryKey(autoGenerate = true)
@@ -67,10 +67,9 @@ public class Player {
         this.date = date;
     }
 
-
     @Override
     public String toString() {
-        return "\nplayList{" +
+        return "\nplayerLog{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", date=" + date +
