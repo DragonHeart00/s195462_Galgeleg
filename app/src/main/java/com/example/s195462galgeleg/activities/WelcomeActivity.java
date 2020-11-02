@@ -16,6 +16,7 @@ import android.widget.EditText;
 import com.example.s195462galgeleg.MainActivity;
 import com.example.s195462galgeleg.R;
 import com.example.s195462galgeleg.database.AppDatabase;
+import com.example.s195462galgeleg.database.PlayerViewModel;
 import com.example.s195462galgeleg.model.Player;
 
 import java.text.SimpleDateFormat;
@@ -54,23 +55,13 @@ public class WelcomeActivity extends AppCompatActivity {
                     Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
                     intent.putExtra("name",str);
                     startActivity(intent);
+                    //must change
                     Player player = new Player(str, formattedDate);
-                    InsertAsyncTask insertAsyncTask = new InsertAsyncTask();
-                    insertAsyncTask.execute(player);
+                    PlayerViewModel playerViewModel = new PlayerViewModel(getApplication());
+                    playerViewModel.insert(player);
                 }
             }
         });
     }
 
-    class InsertAsyncTask extends AsyncTask<Player, Void, Void> {
-
-        @Override
-        protected Void doInBackground(Player... players) {
-
-            AppDatabase.getInstance(getApplicationContext())
-                    .playerDAO()
-                    .insertAll(players[0]);
-            return null;
-        }
-    }
 }
