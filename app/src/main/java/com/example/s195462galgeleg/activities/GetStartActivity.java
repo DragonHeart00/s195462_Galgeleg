@@ -22,6 +22,7 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
     private TextView gussTekst;
     private GridLayout letterGrid;
     private ImageView galgelegImage;
+    private TextView playerNameText;
     private int count = 0;
 
 
@@ -31,6 +32,11 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_start);
 
+        playerNameText =findViewById(R.id.player_name);
+
+        Intent intent=getIntent();
+        String playerName = intent.getStringExtra("name");
+        playerNameText.setText(playerName);
 
         gussTekst = findViewById(R.id.guss);
         letterGrid = findViewById(R.id.gridLayout);

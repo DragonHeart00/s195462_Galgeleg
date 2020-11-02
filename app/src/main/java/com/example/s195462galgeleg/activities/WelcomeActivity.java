@@ -48,7 +48,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
                 String str = name.getText().toString();
                 if (TextUtils.isEmpty(str)) {
-                    name.setError("missed me!");
+                    name.setError("savnet mig!");
                     return;
                 }else {
                     Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);

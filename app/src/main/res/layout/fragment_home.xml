@@ -14,7 +14,7 @@
         android:layout_height="56dp"
         android:layout_marginBottom="256dp"
         android:background="@color/black"
-        android:text="Play"
+        android:text="Spil"
         android:textSize="22dp"
         android:textColor="@color/white"
         android:textAllCaps="false"

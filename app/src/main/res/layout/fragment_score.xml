@@ -12,17 +12,19 @@
         android:id="@+id/recyclerviewid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-       >
+        android:layout_marginBottom="45dp"
+
+        >
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <Button
         android:id="@+id/delete_all"
-        android:layout_width="match_parent"
+        android:layout_width="234dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
-        android:textAllCaps="false"
-        android:text="Delete All" />
+        android:text="Delete All"
+        android:textAllCaps="false" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

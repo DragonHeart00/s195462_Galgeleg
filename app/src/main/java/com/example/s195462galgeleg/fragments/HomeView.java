@@ -28,7 +28,7 @@ public class HomeView extends Fragment {
         name = view.findViewById(R.id.name);
         Intent intent=getActivity().getIntent();
         String txtname = intent.getStringExtra("name");
-        name.setText("Welcome "+txtname + " to Hangman");
+        name.setText("Velkommen "+txtname + " til Galgeleg");
 
 
 
@@ -36,6 +36,7 @@ public class HomeView extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), GetStartActivity.class);
+                intent.putExtra("name",txtname);
                 startActivity(intent);
             }
         });

@@ -15,7 +15,7 @@ public class LoserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loser);
-        ord=findViewById(R.id.get_ordet);
+        ord=findViewById(R.id.get_word);
 
         Bundle bundle = getIntent().getExtras();
 
