@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ScoreFragment extends Fragment {
+public class ScoreView extends Fragment {
 
 
     private RecyclerView recyclerView;

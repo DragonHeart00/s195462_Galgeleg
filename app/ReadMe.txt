@@ -8,7 +8,7 @@ s195462
 7. Create a winner loser activities
 8. Work with rules fragment, for now i will use text view to show rules
 9. Create welcome activity with required editText
-10. Create recyclerview: itemLayout.xml, adapter class, player class, recyclerview inside scoreFragment
+10. Create recyclerview: itemLayout.xml, adapter class, player class, recyclerview inside scoreView
 11. SharedPreferences added to welcome activity and score fragment
 12. work with design, i think i will not write any more code for the first handed in):
 13. create textView in LoserActivity to show the right word

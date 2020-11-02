@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 import com.example.s195462galgeleg.R;
 
 
-public class RuleFragment extends Fragment {
+public class RuleView extends Fragment {
 
 
 

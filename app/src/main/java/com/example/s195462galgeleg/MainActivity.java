@@ -2,15 +2,14 @@ package com.example.s195462galgeleg;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
 import com.example.s195462galgeleg.controller.ViewPagerAdapter;
-import com.example.s195462galgeleg.fragments.RuleFragment;
-import com.example.s195462galgeleg.fragments.HomeFragment;
-import com.example.s195462galgeleg.fragments.ScoreFragment;
+import com.example.s195462galgeleg.fragments.RuleView;
+import com.example.s195462galgeleg.fragments.HomeView;
+import com.example.s195462galgeleg.fragments.ScoreView;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
        Toolbar toolbar = findViewById(R.id.tool_bar);
        setSupportActionBar(toolbar);
-      // getSupportActionBar().setTitle("back");
-      // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         // Tabbed Activity
@@ -34,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         //ViewPagerAdapter
-        viewPagerAdapter.addFragment(new RuleFragment(), "Rules");
-        viewPagerAdapter.addFragment(new HomeFragment(), "Home");
-        viewPagerAdapter.addFragment(new ScoreFragment(), "Score");
+        viewPagerAdapter.addFragment(new RuleView(), "Rules");
+        viewPagerAdapter.addFragment(new HomeView(), "Home");
+        viewPagerAdapter.addFragment(new ScoreView(), "Score");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 

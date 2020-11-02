@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.s195462galgeleg.R;
-import com.example.s195462galgeleg.fragments.ScoreFragment;
+import com.example.s195462galgeleg.fragments.ScoreView;
 import com.example.s195462galgeleg.model.Player;
 
 import java.util.List;
@@ -17,11 +17,11 @@ import java.util.List;
 
 public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder> {
 
-    private ScoreFragment scoreFragment;
+    private ScoreView scoreView;
     private List<Player> lists;
 
-    public PlayerAdapter(ScoreFragment scoreFragment, List<Player> lists) {
-        this.scoreFragment = scoreFragment;
+    public PlayerAdapter(ScoreView scoreView, List<Player> lists) {
+        this.scoreView = scoreView;
         this.lists = lists;
     }
 

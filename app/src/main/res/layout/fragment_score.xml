@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/galgeleg"
     android:orientation="vertical"
-    tools:context=".fragments.ScoreFragment">
+    tools:context=".fragments.ScoreView">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerviewid"

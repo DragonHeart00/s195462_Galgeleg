@@ -14,7 +14,7 @@ import com.example.s195462galgeleg.R;
 import com.example.s195462galgeleg.activities.GetStartActivity;
 
 
-public class HomeFragment extends Fragment {
+public class HomeView extends Fragment {
     private Button getStarted;
     private TextView name;
 

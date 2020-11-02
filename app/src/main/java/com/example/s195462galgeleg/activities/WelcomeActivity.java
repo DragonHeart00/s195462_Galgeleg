@@ -70,7 +70,6 @@ public class WelcomeActivity extends AppCompatActivity {
             AppDatabase.getInstance(getApplicationContext())
                     .playerDAO()
                     .insertAll(players[0]);
-
             return null;
         }
     }
