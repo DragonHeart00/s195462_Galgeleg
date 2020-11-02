@@ -1,15 +1,23 @@
 package com.example.s195462galgeleg.fragments;
+import android.app.Application;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 import com.example.s195462galgeleg.R;
 import com.example.s195462galgeleg.controller.PlayerAdapter;
 import com.example.s195462galgeleg.database.AppDatabase;
+import com.example.s195462galgeleg.database.PlayerViewModel;
 import com.example.s195462galgeleg.model.Player;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +26,16 @@ import java.util.List;
 public class ScoreView extends Fragment {
 
 
-    private RecyclerView recyclerView;
+  /*  private RecyclerView recyclerView;
     private List<Player> playerList;
     private RecyclerView.Adapter adapter;
     private AppDatabase appDatabase;
+
+   */
+
+   private RecyclerView recyclerView;
+   private PlayerViewModel playerViewModel;
+   private Button deleteAll;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,6 +45,30 @@ public class ScoreView extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerviewid);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        PlayerAdapter playerAdapter = new PlayerAdapter();
+        recyclerView.setAdapter(playerAdapter);
+
+        deleteAll=view.findViewById(R.id.delete_all);
+        deleteAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                playerViewModel.deleteAll();
+
+            }
+        });
+
+
+        playerViewModel = new ViewModelProvider(getActivity()).get(PlayerViewModel.class);
+        playerViewModel.getAllPlayer().observe(getActivity(), new Observer<List<Player>>() {
+            @Override
+            public void onChanged(List<Player> players) {
+                //update recyclerView
+                playerAdapter.setPlayerList(players);
+            }
+        });
+
+        /*
         playerList = new ArrayList<>();
 
         appDatabase = Room.databaseBuilder(getActivity(),AppDatabase.class,"playerLog").
@@ -43,6 +81,7 @@ public class ScoreView extends Fragment {
         adapter = new PlayerAdapter(this,playerList);
         recyclerView.setAdapter(adapter);
 
+         */
 
         return view;
     }

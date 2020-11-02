@@ -12,18 +12,23 @@ import com.example.s195462galgeleg.R;
 import com.example.s195462galgeleg.fragments.ScoreView;
 import com.example.s195462galgeleg.model.Player;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder> {
 
-    private ScoreView scoreView;
-    private List<Player> lists;
 
+    private List<Player> lists = new ArrayList<>();
+
+   /*
+    private ScoreView scoreView;
     public PlayerAdapter(ScoreView scoreView, List<Player> lists) {
         this.scoreView = scoreView;
         this.lists = lists;
     }
+
+    */
 
 
 
@@ -54,16 +59,17 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.ViewHolder
     }
 
 
-
+    public void setPlayerList(List<Player> myPlayerList) {
+        this.lists = myPlayerList;
+        notifyDataSetChanged();
+    }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView name;
-        private  TextView score;
-        private TextView date;
 
+        private TextView name,score,date;
 
-        public ViewHolder(@NonNull View itemView) {
+            public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.player_name);
             score = itemView.findViewById(R.id.score);

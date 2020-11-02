@@ -14,4 +14,5 @@ s195462
 13. create textView in LoserActivity to show the right word
 14. create textView in WinnerActivity to show Number of Incorrect Letters
 15. I prefer to use room database instead of sharedPreferences
+16. added MVVM architecture to game
 

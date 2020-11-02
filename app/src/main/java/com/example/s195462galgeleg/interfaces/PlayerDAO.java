@@ -1,4 +1,5 @@
 package com.example.s195462galgeleg.interfaces;
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -12,11 +13,14 @@ import java.util.List;
 public interface PlayerDAO {
 
     @Query("SELECT * FROM playerLog")
-    List<Player> getAllPlayers();
+    LiveData<List<Player>> getAllPlayers();
+
+    @Insert
+    void insert(Player players);
 
     @Insert
     void insertAll(Player... players);
 
-    @Delete
-    void deletePlayer(Player player);
+    @Query("DELETE FROM playerLog")
+    void deleteAllPlayer();
 }
