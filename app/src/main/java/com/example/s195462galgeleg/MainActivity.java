@@ -1,9 +1,11 @@
 package com.example.s195462galgeleg;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.example.s195462galgeleg.controller.ViewPagerAdapter;
@@ -45,5 +47,25 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_rule);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_home);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_person);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Afslutning")
+                .setMessage("Er du sikker på, at du vil vende tilbage til velkomstsiden?")
+                .setPositiveButton("Ja", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+
+                    }
+
+                })
+                .setNegativeButton("Nej", null)
+                .show();
     }
 }
