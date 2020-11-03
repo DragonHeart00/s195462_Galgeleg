@@ -19,7 +19,7 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
 
     Galgelogik galgelogik = new Galgelogik();
     private Button letterButton;
-    private TextView gussTekst;
+    private TextView guessTekst, show_first_char;
     private GridLayout letterGrid;
     private ImageView galgelegImage;
     private TextView playerNameText;
@@ -33,19 +33,20 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_get_start);
 
         playerNameText =findViewById(R.id.player_name);
+        show_first_char=findViewById(R.id.show_char);
 
         Intent intent=getIntent();
         String playerName = intent.getStringExtra("name");
         playerNameText.setText(playerName);
 
-        gussTekst = findViewById(R.id.guss);
+        guessTekst = findViewById(R.id.guss);
         letterGrid = findViewById(R.id.gridLayout);
         galgelegImage = findViewById(R.id.imageView);
 
-
+        show_first_char.setText("Ordet starter med bogstav "+galgelogik.getOrdet().charAt(0));
 
         // guss word ******
-        gussTekst.setText(galgelogik.getSynligtOrd());
+        guessTekst.setText(galgelogik.getSynligtOrd());
         galgelegImage.setVisibility(galgelegImage.INVISIBLE);
 
     }
@@ -75,7 +76,7 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
 
         galgelegImage.setVisibility(galgelegImage.VISIBLE);
 
-        gussTekst.setText(galgelogik.getSynligtOrd());
+        guessTekst.setText(galgelogik.getSynligtOrd());
         letterButton.setVisibility(View.GONE);
 
 

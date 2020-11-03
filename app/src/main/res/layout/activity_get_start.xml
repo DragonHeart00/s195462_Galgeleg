@@ -33,6 +33,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/show_char"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="TextView" />
+
+    <TextView
         android:id="@+id/guss"
         android:layout_width="match_parent"
         android:layout_height="46dp"
