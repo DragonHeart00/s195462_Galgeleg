@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
     private GridLayout letterGrid;
     private ImageView galgelegImage;
     private TextView playerNameText;
+    private ImageButton restart,hint;
     private int count = 0;
 
 
@@ -36,6 +38,24 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
 
         playerNameText =findViewById(R.id.player_name);
         show_first_char=findViewById(R.id.show_char);
+        restart=findViewById(R.id.change_word);
+        hint=findViewById(R.id.hint_word);
+
+
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                show_first_char.setText("Ordet starter med bogstav "+galgelogik.getOrdet().charAt(0));
+            }
+        });
+
+        restart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                confirmRestGame();
+            }
+        });
+
 
         Intent intent=getIntent();
         String playerName = intent.getStringExtra("name");
@@ -45,7 +65,7 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
         letterGrid = findViewById(R.id.gridLayout);
         galgelegImage = findViewById(R.id.imageView);
 
-        show_first_char.setText("Ordet starter med bogstav "+galgelogik.getOrdet().charAt(0));
+
 
         // guss word ******
         guessTekst.setText(galgelogik.getSynligtOrd());
@@ -148,6 +168,28 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
                 })
                 .setNegativeButton("Fortsæt", null)
                 .show();
+    }
+
+
+    private void confirmRestGame() {
+
+        new AlertDialog.Builder(this)
+                .setTitle("Nyt Ordet")
+                .setMessage("Are you sure you want to cancel this order ?")
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        Intent intent = getIntent();
+                        finish();
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("Fortsæt", null)
+                .show();
+
+
+
     }
 
 

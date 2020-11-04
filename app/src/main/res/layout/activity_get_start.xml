@@ -13,15 +13,16 @@
         android:id="@+id/player_name"
         android:layout_width="191dp"
         android:layout_height="45dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
         android:paddingStart="20dp"
         android:paddingTop="20dp"
-        android:textColor="@color/white"
         android:text="TextView"
+        android:textColor="@color/white"
         android:textSize="16dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintEnd_toStartOf="@+id/hint_word"
+        app:layout_constraintHorizontal_bias="0.243"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,7 +48,7 @@
         android:layout_marginEnd="28dp"
         android:gravity="center"
         android:paddingStart="20dp"
-        android:text="TextView"
+        android:text=""
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -479,6 +480,30 @@
 
 
     </GridLayout>
+
+    <ImageButton
+        android:id="@+id/change_word"
+        android:layout_width="45dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:background="?android:selectableItemBackground"
+        android:src="@drawable/exchange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/hint_word"
+        android:layout_width="45dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:background="?android:selectableItemBackground"
+        android:src="@drawable/qumark"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/change_word"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
