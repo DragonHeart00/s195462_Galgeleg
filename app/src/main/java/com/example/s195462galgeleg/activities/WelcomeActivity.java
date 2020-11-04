@@ -5,11 +5,14 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -28,6 +31,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private Button getStarted;
     private EditText name;
+    private Animation button_animation ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,22 @@ public class WelcomeActivity extends AppCompatActivity {
 
         getStarted = findViewById(R.id.start_button);
         name = findViewById(R.id.editTextTextPersonName);
+
+        //load animation
+        button_animation= AnimationUtils.loadAnimation(this, R.anim.button_anim);
+
+
+        //passing animation
+        getStarted.startAnimation(button_animation);
+
+
+        //import font
+        Typeface MMedium = Typeface.createFromAsset(getAssets(),"fonts/MMedium.ttf");
+
+
+
+        // customize font
+        getStarted.setTypeface(MMedium);
 
         Date c = Calendar.getInstance().getTime();
         System.out.println("Current time => " + c);
@@ -53,6 +73,7 @@ public class WelcomeActivity extends AppCompatActivity {
                     return;
                 }else {
                     Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     intent.putExtra("name",str);
                     startActivity(intent);
                     //must change

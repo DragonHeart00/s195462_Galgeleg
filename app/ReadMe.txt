@@ -15,4 +15,5 @@ s195462
 14. create textView in WinnerActivity to show Number of Incorrect Letters
 15. I prefer to use room database instead of sharedPreferences
 16. added MVVM architecture to game
+17. get started with animation
 
