@@ -17,7 +17,7 @@
             android:id="@+id/tool_bar"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="#7183AA"
+            android:background="#FF207AA8"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
 
@@ -26,7 +26,7 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
-            android:background="#7183AA"
+            android:background="#FF207AA8"
             android:layout_height="wrap_content"
             app:tabGravity="fill"
             app:tabIndicatorColor="#BEC7F1"
@@ -41,7 +41,7 @@
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FAF6F6"
+        android:background="#0E1735"
         android:id="@+id/view_page"
         android:layout_below="@id/app_bar_layout"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />

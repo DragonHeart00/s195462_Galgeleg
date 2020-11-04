@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/galgeleg"
+    android:background="#0E1735"
     android:orientation="vertical"
     tools:context=".fragments.ScoreView">
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    android:background="@color/galgeleg"
+    android:background="#0E1735"
     android:paddingBottom="16dp"
     android:paddingTop="16dp"
     android:paddingLeft="16dp"
@@ -20,7 +20,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="Galgeleg Version I "
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="30dp" />
 
 
@@ -38,7 +38,7 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="@string/desc"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16dp" />
 
     </ScrollView>

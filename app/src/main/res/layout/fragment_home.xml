@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/galgeleg"
+    android:background="#0E1735"
     tools:context=".fragments.HomeView">
 
 
@@ -13,7 +13,7 @@
         android:layout_width="129dp"
         android:layout_height="56dp"
         android:layout_marginBottom="256dp"
-        android:background="@color/black"
+        android:background="#FF207AA8"
         android:text="Spil"
         android:textSize="22dp"
         android:textColor="@color/white"
