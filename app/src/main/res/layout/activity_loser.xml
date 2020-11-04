@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/galgeleg"
+    android:background="#0E1735"
     tools:context=".activities.LoserActivity">
 
     <TextView
@@ -14,6 +14,7 @@
         android:layout_marginTop="72dp"
         android:text="TextView"
         android:textSize="25dp"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,8 +33,9 @@
 
     <Button
         android:id="@+id/try_again"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="174dp"
+        android:layout_height="58dp"
+        android:background="@drawable/bt_background"
         android:text="Prøv igen"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/galgeleg"
+    android:background="#0E1735"
     tools:context=".activities.WinnerActivity">
 
 
@@ -15,6 +15,7 @@
         android:layout_marginTop="72dp"
         android:gravity="center"
         android:text="TextView"
+        android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,8 +23,9 @@
 
     <Button
         android:id="@+id/play_again"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="166dp"
+        android:layout_height="53dp"
+        android:background="@drawable/bt_background"
         android:text="Spil igen"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
