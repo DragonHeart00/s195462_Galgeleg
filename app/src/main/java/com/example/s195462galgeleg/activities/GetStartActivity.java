@@ -175,9 +175,9 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
 
         new AlertDialog.Builder(this)
                 .setTitle("Nyt Ordet")
-                .setMessage("Are you sure you want to cancel this order ?")
+                .setMessage("Få et nyt ord")
                 .setIcon(android.R.drawable.ic_dialog_alert)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Ja", new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
                         Intent intent = getIntent();
@@ -185,7 +185,7 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
                         startActivity(intent);
                     }
                 })
-                .setNegativeButton("Fortsæt", null)
+                .setNegativeButton("Nej", null)
                 .show();
 
 
