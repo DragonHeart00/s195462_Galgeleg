@@ -88,6 +88,7 @@ public class Register extends AppCompatActivity {
 //                          Toast.makeText(getApplicationContext(),"User Created" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Register.this, MainActivity.class);
                             startActivity(intent);
+                            finish();
                             Player player = new Player(myEmail, formattedDate);
                             PlayerViewModel playerViewModel = new PlayerViewModel(getApplication());
                             playerViewModel.insert(player);
