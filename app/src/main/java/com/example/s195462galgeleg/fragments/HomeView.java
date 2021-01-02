@@ -49,10 +49,12 @@ public class HomeView extends Fragment {
         getStarted.setTypeface(MMedium);
 
 
-        name = view.findViewById(R.id.name);
+       /* name = view.findViewById(R.id.name);
         Intent intent=getActivity().getIntent();
         String txtname = intent.getStringExtra("name");
         name.setText("Velkommen "+txtname + " til Galgeleg");
+
+        */
 
 
 
@@ -61,7 +63,7 @@ public class HomeView extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), GetStartActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                intent.putExtra("name",txtname);
+            //    intent.putExtra("name",txtname);
                 startActivity(intent);
             }
         });

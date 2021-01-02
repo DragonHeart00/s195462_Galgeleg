@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "865213612779",
+    "project_id": "s195462-galgeleg",
+    "storage_bucket": "s195462-galgeleg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:865213612779:android:b1f1b983a59b08d4bef4ae",
+        "android_client_info": {
+          "package_name": "com.example.s195462galgeleg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "865213612779-sci5ua5t1im9ec0qrk0jvqrvj6if68qu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyO2H1n6NE_6V3QA9c7psHfpTKo33noKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "865213612779-sci5ua5t1im9ec0qrk0jvqrvj6if68qu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
