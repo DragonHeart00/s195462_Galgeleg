@@ -16,7 +16,7 @@ import com.example.s195462galgeleg.R;
 public class WinnerActivity extends AppCompatActivity {
 
     private Button play_again;
-    private TextView textView;
+    private TextView wrongChar, score;
     private Animation button_animation ;
 
     @Override
@@ -24,7 +24,8 @@ public class WinnerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_winner);
 
-        textView=findViewById(R.id.textView);
+        wrongChar=findViewById(R.id.textView);
+        score = findViewById(R.id.score_text);
         play_again=findViewById(R.id.play_again);
 
 
@@ -53,7 +54,8 @@ public class WinnerActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         String data = bundle.getString("AntalForkerteBogstaver");
-        textView.setText("Antal Forkerte Bogstaver var "+data + " Bogstaver");
-
+        String my_score = bundle.getString("your_score");
+        wrongChar.setText("Antal Forkerte Bogstaver var "+data + " Bogstaver");
+        score.setText("du har fået  "+my_score + " point");
     }
 }

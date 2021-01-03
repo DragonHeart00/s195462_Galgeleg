@@ -5,36 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0E1735"
-    tools:context=".fragments.HomeView">
+    tools:context=".fragments.GuestFragment">
 
+
+    <TextView
+        android:id="@+id/score_id"
+        android:layout_width="308dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="144dp"
+        android:gravity="center"
+        android:text="Log ind for at se seneste resultater "
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/get_started"
+        android:id="@+id/sign_in_id"
         android:layout_width="233dp"
         android:layout_height="57dp"
         android:background="@drawable/bt_background"
-        android:text="Spil"
+        android:text="Log ind"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.566" />
-
-    <!--    <TextView-->
-<!--        android:id="@+id/name"-->
-<!--        android:layout_width="302dp"-->
-<!--        android:layout_height="126dp"-->
-<!--        android:layout_marginTop="172dp"-->
-<!--        android:text="TextView"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:textSize="20dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.498"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-
+        app:layout_constraintTop_toBottomOf="@+id/score_id"
+        app:layout_constraintVertical_bias="0.274" />
 </androidx.constraintlayout.widget.ConstraintLayout>

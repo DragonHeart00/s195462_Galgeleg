@@ -20,7 +20,6 @@ import com.example.s195462galgeleg.activities.GetStartActivity;
 public class HomeView extends Fragment {
     private Button getStarted;
     private TextView name;
-    private Animation button_animation ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,22 +30,6 @@ public class HomeView extends Fragment {
         getStarted = view.findViewById(R.id.get_started);
 
 
-
-        //load animation
-        button_animation= AnimationUtils.loadAnimation(getActivity(), R.anim.button_anim);
-
-
-        //passing animation
-        getStarted.startAnimation(button_animation);
-
-
-        //import font
-        Typeface MMedium = Typeface.createFromAsset(getActivity().getAssets(),"fonts/MMedium.ttf");
-
-
-
-        // customize font
-        getStarted.setTypeface(MMedium);
 
 
        /* name = view.findViewById(R.id.name);
@@ -62,7 +45,6 @@ public class HomeView extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), GetStartActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             //    intent.putExtra("name",txtname);
                 startActivity(intent);
             }

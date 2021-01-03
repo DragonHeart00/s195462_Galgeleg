@@ -13,5 +13,7 @@
                         som spillet spilles på. Dvs. at bogstaver som e, s, r og t typisk optræder i danske ord.
                         Personen der bestemmer ordet eller sætningen kan samtidig spekulere i at bruge ord,
                         som har få eller ingen hyppige bogstaver, som f.eks. jazz.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

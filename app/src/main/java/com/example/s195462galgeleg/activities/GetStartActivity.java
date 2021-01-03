@@ -28,6 +28,7 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
     private TextView playerNameText;
     private ImageButton restart,hint;
     private int count = 0;
+    private int score = 200;
 
 
 
@@ -106,24 +107,31 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
 
             case 1:
                 galgelegImage.setImageResource(R.drawable.galge);
+                score = 150;
                 break;
             case 2:
                 galgelegImage.setImageResource(R.drawable.forkert1);
+                score = 100;
                 break;
             case 3:
                 galgelegImage.setImageResource(R.drawable.forkert2);
+                score = 50;
                 break;
             case 4:
                 galgelegImage.setImageResource(R.drawable.forkert3);
+                score = 25;
                 break;
             case 5:
                 galgelegImage.setImageResource(R.drawable.forkert4);
+                score = 10;
                 break;
             case 6:
                 galgelegImage.setImageResource(R.drawable.forkert5);
+                score = 15;
                 break;
             case 7:
                 galgelegImage.setImageResource(R.drawable.forkert6);
+                score = 5;
                 break;
             default:
                 galgelegImage.setImageResource(R.drawable.galge);
@@ -135,6 +143,7 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
             //Send user to WinnerActivity
             Intent intent = new Intent(this, WinnerActivity.class);
             intent.putExtra("AntalForkerteBogstaver",galgelogik.getAntalForkerteBogstaver()+"");
+            intent.putExtra("your_score","score:"+ score +"");
             startActivity(intent);
             finish();
 
@@ -144,6 +153,7 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
             Toast.makeText(getApplicationContext(),galgelogik.getOrdet(),Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, LoserActivity.class);
             intent.putExtra("data",galgelogik.getOrdet());
+            intent.putExtra("your_score","score:"+ score +"");
             startActivity(intent);
             finish();
 
@@ -191,7 +201,5 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
 
 
     }
-
-
 
 }
