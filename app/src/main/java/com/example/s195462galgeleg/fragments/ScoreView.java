@@ -17,10 +17,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 import com.example.s195462galgeleg.R;
 import com.example.s195462galgeleg.activities.GetStartActivity;
+import com.example.s195462galgeleg.activities.WelcomeActivity;
 import com.example.s195462galgeleg.controller.PlayerAdapter;
 import com.example.s195462galgeleg.database.AppDatabase;
 import com.example.s195462galgeleg.database.PlayerViewModel;
 import com.example.s195462galgeleg.model.Player;
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +35,7 @@ public class ScoreView extends Fragment {
 
    private RecyclerView recyclerView;
    private PlayerViewModel playerViewModel;
-   private Button deleteAll;
+   private Button logout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,14 +49,28 @@ public class ScoreView extends Fragment {
         PlayerAdapter playerAdapter = new PlayerAdapter();
         recyclerView.setAdapter(playerAdapter);
 
-        deleteAll=view.findViewById(R.id.delete_all);
-        deleteAll.setOnClickListener(new View.OnClickListener() {
+        logout=view.findViewById(R.id.delete_all);
+       /* deleteAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 playerViewModel.deleteAll();
 
             }
         });
+
+        */
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getActivity(), WelcomeActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+
+
 
         playerViewModel = new ViewModelProvider(getActivity()).get(PlayerViewModel.class);
 
@@ -67,4 +84,6 @@ public class ScoreView extends Fragment {
 
         return view;
     }
+
+
 }

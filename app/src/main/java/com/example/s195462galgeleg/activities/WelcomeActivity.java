@@ -39,7 +39,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private Button login;
     private EditText email, password;
-    private TextView goto_register;
+    private TextView goto_register, skip_bt;
     private Animation button_animation ;
     private ProgressBar progressBar;
     private FirebaseAuth myAuth;
@@ -54,6 +54,7 @@ public class WelcomeActivity extends AppCompatActivity {
         email = findViewById(R.id.email_edit_text);
         password=findViewById(R.id.password_edit_text);
         goto_register = findViewById(R.id.goto_register);
+        skip_bt = findViewById(R.id.skip);
         progressBar = findViewById(R.id.progressBar2);
         //load animation
         button_animation= AnimationUtils.loadAnimation(this, R.anim.button_anim);
@@ -76,6 +77,14 @@ public class WelcomeActivity extends AppCompatActivity {
             finish();
         }
 
+
+        skip_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
+            }
+        });
 
         /*
         login.setOnClickListener(new View.OnClickListener() {
