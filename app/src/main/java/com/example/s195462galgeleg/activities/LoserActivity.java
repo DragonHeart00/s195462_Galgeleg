@@ -1,7 +1,6 @@
 package com.example.s195462galgeleg.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -10,7 +9,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.example.s195462galgeleg.R;
 
 public class LoserActivity extends AppCompatActivity {

@@ -5,19 +5,6 @@ public class Player {
     private String name,email;
     private int score;
 
-
-   /*
-   public Player(String name, String score, String date) {
-        this.name = name;
-        this.score = score;
-        this.date = date;
-    }
-    */
-
-    // for now i will use this constructor, because i did not define the score in MainActivity
-
-
-
     public Player() {
     }
 

@@ -1,10 +1,8 @@
 package com.example.s195462galgeleg.activities;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +13,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.s195462galgeleg.R;
 import com.example.s195462galgeleg.logic.Galgelogik;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -23,11 +20,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,11 +36,8 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
     private ImageButton restart,hint;
     private int count = 0;
     private int score;
-    DocumentReference documentReference;
-
-    FirebaseUser firebaseUser;
-
-
+    private DocumentReference documentReference;
+    private FirebaseUser firebaseUser;
     //database
     private FirebaseAuth myAuth;
     private FirebaseFirestore firestore;

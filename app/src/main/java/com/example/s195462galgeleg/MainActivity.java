@@ -4,10 +4,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
-
 import android.content.DialogInterface;
 import android.os.Bundle;
-
 import com.example.s195462galgeleg.controller.ViewPagerAdapter;
 import com.example.s195462galgeleg.fragments.GuestFragment;
 import com.example.s195462galgeleg.fragments.RuleView;
@@ -16,7 +14,6 @@ import com.example.s195462galgeleg.fragments.ScoreView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 public class MainActivity extends AppCompatActivity {
     private ViewPagerAdapter viewPagerAdapter;
     private TabLayout tabLayout;

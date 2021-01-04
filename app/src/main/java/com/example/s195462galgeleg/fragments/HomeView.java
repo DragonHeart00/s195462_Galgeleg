@@ -1,21 +1,15 @@
 package com.example.s195462galgeleg.fragments;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.fragment.app.Fragment;
-
 import com.example.s195462galgeleg.R;
 import com.example.s195462galgeleg.activities.GetStartActivity;
-
 
 public class HomeView extends Fragment {
     private Button getStarted;
@@ -28,17 +22,10 @@ public class HomeView extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         getStarted = view.findViewById(R.id.get_started);
+        name = view.findViewById(R.id.name_of_player);
 
 
-
-
-       /* name = view.findViewById(R.id.name);
-        Intent intent=getActivity().getIntent();
-        String txtname = intent.getStringExtra("name");
-        name.setText("Velkommen "+txtname + " til Galgeleg");
-
-        */
-
+        //todo: hint navn fra firebase
 
 
         getStarted.setOnClickListener(new View.OnClickListener() {
