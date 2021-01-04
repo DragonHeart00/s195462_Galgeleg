@@ -74,7 +74,8 @@ public class WinnerActivity extends AppCompatActivity {
         String data = bundle.getString("AntalForkerteBogstaver");
         String my_score = bundle.getString("yScore");
         wrongChar.setText("Antal Forkerte Bogstaver var "+data + " Bogstaver");
-        score.setText(my_score + "");
+
+        score.setText(my_score);
         //int my_score = getIntent().getIntExtra("yScore", 0);;
 
        // int i=Integer.parseInt(my_score);

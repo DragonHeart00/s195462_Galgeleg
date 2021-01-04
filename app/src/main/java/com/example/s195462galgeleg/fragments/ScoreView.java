@@ -82,9 +82,8 @@ public class ScoreView extends Fragment {
 
             @Override
             protected void onBindViewHolder(@NonNull PlayerViewHolder holder, int position, @NonNull Player model) {
-                holder.name.setText(model.getName());
-                holder.score.setText(model.getScore()+ "");
-                holder.email.setText(model.getEmail());
+                holder.name.setText("brugernavn: " + model.getName());
+                holder.score.setText("score: " + model.getScore());
             }
         };
         recyclerView .setHasFixedSize(true);
@@ -112,14 +111,13 @@ public class ScoreView extends Fragment {
 
     private class PlayerViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView name,score,email;
+        private TextView name,score;
 
         public PlayerViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.player_name);
             score = itemView.findViewById(R.id.score);
-            email = itemView.findViewById(R.id.email);
-        }
+                    }
 
 
 

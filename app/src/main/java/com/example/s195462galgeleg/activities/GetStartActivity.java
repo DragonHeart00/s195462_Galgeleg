@@ -21,6 +21,7 @@ import com.example.s195462galgeleg.logic.Galgelogik;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -44,6 +45,7 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
     private int score;
     DocumentReference documentReference;
 
+    FirebaseUser firebaseUser;
 
 
     //database
@@ -62,14 +64,15 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
         show_first_char=findViewById(R.id.show_char);
         restart=findViewById(R.id.change_word);
         hint=findViewById(R.id.hint_word);
+        myAuth = FirebaseAuth.getInstance();
+        firestore = FirebaseFirestore.getInstance();
+        firebaseUser = myAuth.getCurrentUser();
 
+        if (firebaseUser != null) {
+            //database
 
-        //database
-        myAuth =FirebaseAuth.getInstance();
-        firestore=FirebaseFirestore.getInstance();
-
-        plyerID = myAuth.getCurrentUser().getUid();
-
+            plyerID = myAuth.getCurrentUser().getUid();
+        }
 
       /*  documentReference = firestore.collection("players").document(plyerID);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
@@ -165,31 +168,24 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
 
             case 1:
                 galgelegImage.setImageResource(R.drawable.galge);
-                score = score - 10;
                 break;
             case 2:
                 galgelegImage.setImageResource(R.drawable.forkert1);
-                score = score - 10;
                 break;
             case 3:
                 galgelegImage.setImageResource(R.drawable.forkert2);
-                score = score - 10;
                 break;
             case 4:
                 galgelegImage.setImageResource(R.drawable.forkert3);
-                score = score - 10;
                 break;
             case 5:
                 galgelegImage.setImageResource(R.drawable.forkert4);
-                score = score - 10;
                 break;
             case 6:
                 galgelegImage.setImageResource(R.drawable.forkert5);
-                score = score - 10;
                 break;
             case 7:
                 galgelegImage.setImageResource(R.drawable.forkert6);
-                score = score - 10;
                 break;
             default:
                 galgelegImage.setImageResource(R.drawable.galge);
@@ -199,32 +195,74 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
 
         if (galgelogik.erSpilletVundet()) {
             //Send user to WinnerActivity
+
+
+            if (galgelogik.getAntalForkerteBogstaver() == 0){
+                score=400;
+                score+=score * 2 + galgelogik.getOrdet().length();
+                score++;
+            }else {
+                score+=200;
+                score+= galgelogik.getOrdet().length() * galgelogik.getAntalForkerteBogstaver();
+
+            }
+            if (firebaseUser != null) {
+                //database
+
+                documentReference = firestore.collection("players").document(plyerID);
+                Map<String, Object> players = new HashMap<>();
+                players.put("score", score);
+
+                documentReference.update(players).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                    }
+                });
+            }
+            Toast.makeText(getApplicationContext(),"score:" +score,Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, WinnerActivity.class);
             intent.putExtra("AntalForkerteBogstaver",galgelogik.getAntalForkerteBogstaver()+"");
             intent.putExtra("yScore",score);
             startActivity(intent);
             finish();
 
-            documentReference = firestore.collection("players").document(plyerID);
-            Map<String, Object> players = new HashMap<>();
-            players.put("score", score);
 
-            documentReference.update(players).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void aVoid) {
 
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-
-                }
-            });
 
 
         } else if (galgelogik.erSpilletTabt()){
             //Send user to LoserActivity
-            Toast.makeText(getApplicationContext(),galgelogik.getOrdet(),Toast.LENGTH_SHORT).show();
+            score+= galgelogik.getOrdet().length() + galgelogik.getAntalForkerteBogstaver();
+
+
+            if (firebaseUser != null) {
+                //database
+
+                documentReference = firestore.collection("players").document(plyerID);
+                Map<String, Object> players = new HashMap<>();
+                players.put("score", score);
+
+                documentReference.update(players).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                    }
+                });
+            }
+
+
+            Toast.makeText(getApplicationContext(),galgelogik.getOrdet() + "\n score:" +score,Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, LoserActivity.class);
             intent.putExtra("data",galgelogik.getOrdet());
             intent.putExtra("yScore",score +"");
