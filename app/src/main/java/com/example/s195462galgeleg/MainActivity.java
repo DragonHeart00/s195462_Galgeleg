@@ -53,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout.setupWithViewPager(viewPager);
 
+
+
+
+
         if (firebaseUser == null){
             viewPagerAdapter.addFragment(new GuestFragment(), "new");
             viewPager.setAdapter(viewPagerAdapter);

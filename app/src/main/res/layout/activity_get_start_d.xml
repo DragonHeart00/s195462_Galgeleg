@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#0E1735"
+    android:orientation="vertical"
     tools:context=".startGame.GetStartD">
+
     <TextView
         android:id="@+id/player_name"
-        android:layout_width="191dp"
-        android:layout_height="45dp"
+        android:layout_width="155dp"
+        android:layout_height="24dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
-        android:paddingStart="20dp"
-        android:paddingTop="20dp"
-        android:text="TextView"
+
+        android:text="name"
         android:textColor="@color/white"
         android:textSize="16dp"
         android:textStyle="bold"
@@ -29,12 +29,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="48dp"
         android:src="@drawable/galge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/player_name" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/show_char"
@@ -502,4 +502,16 @@
         app:layout_constraintEnd_toStartOf="@+id/change_word"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="72dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="4dp"
+        android:text="score"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>

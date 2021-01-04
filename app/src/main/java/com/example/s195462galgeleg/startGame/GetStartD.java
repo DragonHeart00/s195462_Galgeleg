@@ -1,6 +1,7 @@
 package com.example.s195462galgeleg.startGame;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,7 +25,10 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,7 +41,6 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
     private TextView guessTekst, show_first_char;
     private GridLayout letterGrid;
     private ImageView galgelegImage;
-    private TextView playerNameText;
     private ImageButton restart,hint;
     private int count = 0;
     private int score;
@@ -48,6 +51,10 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
     private FirebaseFirestore firestore;
     private String plyerID;
 
+    //name and score
+    private TextView playerNameText, score_text;
+
+
 
 
     @Override
@@ -56,6 +63,7 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_get_start_t);
 
         playerNameText =findViewById(R.id.player_name);
+        score_text=findViewById(R.id.textView3);
         show_first_char=findViewById(R.id.show_char);
         restart=findViewById(R.id.change_word);
         hint=findViewById(R.id.hint_word);
@@ -63,10 +71,25 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
         firestore = FirebaseFirestore.getInstance();
         firebaseUser = myAuth.getCurrentUser();
 
+
         if (firebaseUser != null) {
             //database
 
             plyerID = myAuth.getCurrentUser().getUid();
+
+
+            DocumentReference documentReference = firestore.collection("players").document(plyerID);
+            documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                    playerNameText.setText(value.getString("name"));
+//                    int x = (int)  value.get("score");
+//                    score_text.setText( x + "");
+                }
+            });
+
+
         }
 
 
