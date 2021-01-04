@@ -78,7 +78,11 @@ public class Register extends AppCompatActivity {
                 if (TextUtils.isEmpty(myPassword)){
                     password.setError("Password is not valid");
                     return;
+                }if (TextUtils.isEmpty(playerName)){
+                    userName.setError("not valid");
+                    return;
                 }
+
 
                 if (myPassword.length() < 6){
                     password.setError("Password must be >= 6 char");
