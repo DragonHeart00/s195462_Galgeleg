@@ -9,6 +9,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.s195462galgeleg.MainActivity;
 import com.example.s195462galgeleg.R;
 import com.example.s195462galgeleg.startGame.GetStartT;
 import com.google.firebase.auth.FirebaseAuth;
@@ -51,7 +53,7 @@ public class WinnerActivity extends AppCompatActivity {
         play_again.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent  =new Intent(WinnerActivity.this, GetStartT.class);
+                Intent intent  =new Intent(WinnerActivity.this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 //TODO: show name of player in GetStartActivity
                 startActivity(intent);
