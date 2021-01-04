@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.example.s195462galgeleg.R;
 import com.example.s195462galgeleg.activities.LoserActivity;
 import com.example.s195462galgeleg.activities.WinnerActivity;
-import com.example.s195462galgeleg.logic.LogikT;
+import com.example.s195462galgeleg.logic.LogicT;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,7 +29,7 @@ import java.util.Map;
 public class GetStartT extends AppCompatActivity implements View.OnClickListener {
 
 
-    LogikT logikT = new LogikT();
+    LogicT logicT = new LogicT();
     private Button letterButton;
     private TextView guessTekst, show_first_char;
     private GridLayout letterGrid;
@@ -90,7 +90,7 @@ public class GetStartT extends AppCompatActivity implements View.OnClickListener
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show_first_char.setText("Ordet starter med bogstav "+logikT.getOrdet().charAt(0));
+                show_first_char.setText("Ordet starter med bogstav "+ logicT.getOrdet().charAt(0));
             }
         });
 
@@ -113,7 +113,7 @@ public class GetStartT extends AppCompatActivity implements View.OnClickListener
 
 
         // guss word ******
-        guessTekst.setText(logikT.getSynligtOrd());
+        guessTekst.setText(logicT.getSynligtOrd());
         galgelegImage.setVisibility(galgelegImage.INVISIBLE);
 
 
@@ -147,16 +147,16 @@ public class GetStartT extends AppCompatActivity implements View.OnClickListener
         String BogstavGæt = (letterButton.getText().toString().toLowerCase());
 
         //Calls to the logic.
-        logikT.gætBogstav(BogstavGæt);
+        logicT.gætBogstav(BogstavGæt);
 
 
         galgelegImage.setVisibility(galgelegImage.VISIBLE);
 
-        guessTekst.setText(logikT.getSynligtOrd());
+        guessTekst.setText(logicT.getSynligtOrd());
         letterButton.setVisibility(View.GONE);
 
 
-        switch (logikT.getAntalForkerteBogstaver()){
+        switch (logicT.getAntalForkerteBogstaver()){
 
             case 1:
                 galgelegImage.setImageResource(R.drawable.galge);
@@ -185,17 +185,17 @@ public class GetStartT extends AppCompatActivity implements View.OnClickListener
                 break;
         }
 
-        if (logikT.erSpilletVundet()) {
+        if (logicT.erSpilletVundet()) {
             //Send user to WinnerActivity
 
 
-            if (logikT.getAntalForkerteBogstaver() == 0){
+            if (logicT.getAntalForkerteBogstaver() == 0){
                 score= 400;
-                score+=score * 2 + logikT.getOrdet().length();
+                score+=score * 2 + logicT.getOrdet().length();
 
             }else {
                 score+=200;
-                score+= logikT.getOrdet().length() * logikT.getAntalForkerteBogstaver();
+                score+= logicT.getOrdet().length() * logicT.getAntalForkerteBogstaver();
 
             }
             if (firebaseUser != null) {
@@ -219,7 +219,7 @@ public class GetStartT extends AppCompatActivity implements View.OnClickListener
             }
             Toast.makeText(getApplicationContext(),"score:" +score,Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, WinnerActivity.class);
-            intent.putExtra("AntalForkerteBogstaver",logikT.getAntalForkerteBogstaver()+"");
+            intent.putExtra("AntalForkerteBogstaver", logicT.getAntalForkerteBogstaver()+"");
             intent.putExtra("yScore",score);
             startActivity(intent);
             finish();
@@ -228,9 +228,9 @@ public class GetStartT extends AppCompatActivity implements View.OnClickListener
 
 
 
-        } else if (logikT.erSpilletTabt()){
+        } else if (logicT.erSpilletTabt()){
             //Send user to LoserActivity
-            score+= logikT.getOrdet().length() + logikT.getAntalForkerteBogstaver();
+            score+= logicT.getOrdet().length() + logicT.getAntalForkerteBogstaver();
 
 
             if (firebaseUser != null) {
@@ -254,9 +254,9 @@ public class GetStartT extends AppCompatActivity implements View.OnClickListener
             }
 
 
-            Toast.makeText(getApplicationContext(),logikT.getOrdet() + "\n score:" +score,Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), logicT.getOrdet() + "\n score:" +score,Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, LoserActivity.class);
-            intent.putExtra("data",logikT.getOrdet());
+            intent.putExtra("data", logicT.getOrdet());
             intent.putExtra("yScore",score +"");
             startActivity(intent);
             finish();

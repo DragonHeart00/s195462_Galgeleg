@@ -3,7 +3,7 @@ package com.example.s195462galgeleg.logic;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class LogikD {
+public class LogicT {
     ArrayList<String> muligeOrd = new ArrayList<String>();
     private String ordet;
     private ArrayList<String> brugteBogstaver = new ArrayList<String>();
@@ -13,19 +13,18 @@ public class LogikD {
     private boolean spilletErVundet;
     private boolean spilletErTabt;
 
-    public LogikD() {
-//        muligeOrd.add("Amurtiger");
-//        muligeOrd.add("kamel");
-//        muligeOrd.add("rotte");
-//        muligeOrd.add("chimpanse");
-//        muligeOrd.add("congopåfugl");
-//        muligeOrd.add("emu");
-//        muligeOrd.add("kattalemur");
-//        muligeOrd.add("løve");
-        muligeOrd.add("mara");
+    public LogicT() {
+//        muligeOrd.add("bil");
+//        muligeOrd.add("computer");
+//        muligeOrd.add("programmering");
+//        muligeOrd.add("motorvej");
+//        muligeOrd.add("busrute");
+//        muligeOrd.add("gangsti");
+//        muligeOrd.add("skovsnegl");
+          muligeOrd.add("solsort");
+//        muligeOrd.add("tyve");
         startNytSpil();
     }
-
 
 
     public String getSynligtOrd() {
@@ -114,6 +113,8 @@ public class LogikD {
 
 
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
+
     }
+
 }

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.S195462Galgeleg">
-        <activity android:name=".startGame.GetStartF"></activity>
+        <activity android:name=".startGame.GetStartL"></activity>
+        <activity android:name=".startGame.GetStartF" />
         <activity android:name=".startGame.GetStartD" />
         <activity android:name=".activities.Register" />
         <activity android:name=".activities.WelcomeActivity">

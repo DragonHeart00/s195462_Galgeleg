@@ -10,10 +10,11 @@ import androidx.fragment.app.Fragment;
 import com.example.s195462galgeleg.R;
 import com.example.s195462galgeleg.startGame.GetStartD;
 import com.example.s195462galgeleg.startGame.GetStartF;
+import com.example.s195462galgeleg.startGame.GetStartL;
 import com.example.s195462galgeleg.startGame.GetStartT;
 
 public class HomeView extends Fragment {
-    private Button getStarted, dyr_button, frugter_button;
+    private Button tilfældigt_button, dyr_button, frugter_button, land_button;
     private TextView name;
 
     @Override
@@ -22,16 +23,18 @@ public class HomeView extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        getStarted = view.findViewById(R.id.get_started);
         name = view.findViewById(R.id.name_of_player);
+        tilfældigt_button = view.findViewById(R.id.tilfældigt_id);
         dyr_button = view.findViewById(R.id.dyr_id);
         frugter_button = view.findViewById(R.id.frugter_id);
+        land_button = view.findViewById(R.id.land_id);
+
 
 
         //todo: hint navn fra firebase
 
 
-        getStarted.setOnClickListener(new View.OnClickListener() {
+        tilfældigt_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), GetStartT.class);
@@ -58,6 +61,14 @@ public class HomeView extends Fragment {
             }
         });
 
+
+        land_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), GetStartL.class);
+                startActivity(intent);
+            }
+        });
 
 
 

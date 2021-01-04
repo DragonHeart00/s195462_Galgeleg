@@ -18,7 +18,7 @@ import android.widget.Toast;
 import com.example.s195462galgeleg.R;
 import com.example.s195462galgeleg.activities.LoserActivity;
 import com.example.s195462galgeleg.activities.WinnerActivity;
-import com.example.s195462galgeleg.logic.LogikD;
+import com.example.s195462galgeleg.logic.LogicD;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,7 +32,7 @@ import java.util.Map;
 public class GetStartD extends AppCompatActivity implements View.OnClickListener {
 
 
-    LogikD logikD = new LogikD();
+    LogicD logicD = new LogicD();
     private Button letterButton;
     private TextView guessTekst, show_first_char;
     private GridLayout letterGrid;
@@ -73,7 +73,7 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show_first_char.setText("Ordet starter med bogstav "+logikD.getOrdet().charAt(0));
+                show_first_char.setText("Ordet starter med bogstav "+ logicD.getOrdet().charAt(0));
             }
         });
 
@@ -96,7 +96,7 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
 
 
         // guss word ******
-        guessTekst.setText(logikD.getSynligtOrd());
+        guessTekst.setText(logicD.getSynligtOrd());
         galgelegImage.setVisibility(galgelegImage.INVISIBLE);
 
     }
@@ -121,16 +121,16 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
         String BogstavGæt = (letterButton.getText().toString().toLowerCase());
 
         //Calls to the logic.
-        logikD.gætBogstav(BogstavGæt);
+        logicD.gætBogstav(BogstavGæt);
 
 
         galgelegImage.setVisibility(galgelegImage.VISIBLE);
 
-        guessTekst.setText(logikD.getSynligtOrd());
+        guessTekst.setText(logicD.getSynligtOrd());
         letterButton.setVisibility(View.GONE);
 
 
-        switch (logikD.getAntalForkerteBogstaver()){
+        switch (logicD.getAntalForkerteBogstaver()){
 
             case 1:
                 galgelegImage.setImageResource(R.drawable.galge);
@@ -159,16 +159,16 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
                 break;
         }
 
-        if (logikD.erSpilletVundet()) {
+        if (logicD.erSpilletVundet()) {
             //Send user to WinnerActivity
 
-            if (logikD.getAntalForkerteBogstaver() == 0){
+            if (logicD.getAntalForkerteBogstaver() == 0){
                 score= 400;
-                score+=score * 2 + logikD.getOrdet().length();
+                score+=score * 2 + logicD.getOrdet().length();
 
             }else {
                 score+=200;
-                score+= logikD.getOrdet().length() * logikD.getAntalForkerteBogstaver();
+                score+= logicD.getOrdet().length() * logicD.getAntalForkerteBogstaver();
 
             }
             if (firebaseUser != null) {
@@ -192,14 +192,14 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
             }
             Toast.makeText(getApplicationContext(),"score:" +score,Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, WinnerActivity.class);
-            intent.putExtra("AntalForkerteBogstaver",logikD.getAntalForkerteBogstaver()+"");
+            intent.putExtra("AntalForkerteBogstaver", logicD.getAntalForkerteBogstaver()+"");
             intent.putExtra("yScore",score);
             startActivity(intent);
             finish();
 
-        } else if (logikD.erSpilletTabt()){
+        } else if (logicD.erSpilletTabt()){
             //Send user to LoserActivity
-            score+= logikD.getOrdet().length() + logikD.getAntalForkerteBogstaver();
+            score+= logicD.getOrdet().length() + logicD.getAntalForkerteBogstaver();
 
 
             if (firebaseUser != null) {
@@ -223,9 +223,9 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
             }
 
 
-            Toast.makeText(getApplicationContext(),logikD.getOrdet() + "\n score:" +score,Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), logicD.getOrdet() + "\n score:" +score,Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, LoserActivity.class);
-            intent.putExtra("data",logikD.getOrdet());
+            intent.putExtra("data", logicD.getOrdet());
             intent.putExtra("yScore",score +"");
             startActivity(intent);
             finish();
