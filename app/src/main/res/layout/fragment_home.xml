@@ -12,31 +12,87 @@
         android:id="@+id/get_started"
         android:layout_width="233dp"
         android:layout_height="57dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="224dp"
         android:background="@drawable/bt_background"
-        android:text="Spil"
+        android:text="Tilfældigt "
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.566" />
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintVertical_bias="0.1" />
 
     <TextView
         android:id="@+id/name_of_player"
         android:layout_width="129dp"
         android:layout_height="28dp"
+        android:layout_marginTop="16dp"
         android:text="name"
         android:textColor="@color/white"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/get_started"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.044" />
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/dyr_id"
+        android:layout_width="233dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="84dp"
+        android:background="@drawable/bt_background"
+        android:text="Dyrene"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_of_player" />
+
+    <Button
+        android:id="@+id/frugter_id"
+        android:layout_width="233dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bt_background"
+        android:text="Frugter"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dyr_id" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="233dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bt_background"
+        android:text="Lande"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frugter_id" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="129dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="16dp"
+        android:text="score"
+
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/dyr_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/name_of_player"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,9 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#0E1735"
-    tools:context=".activities.GetStartActivity">
-
-
+    tools:context=".startGame.GetStartD">
     <TextView
         android:id="@+id/player_name"
         android:layout_width="191dp"
@@ -504,6 +502,4 @@
         app:layout_constraintEnd_toStartOf="@+id/change_word"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
