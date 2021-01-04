@@ -1,6 +1,7 @@
 package com.example.s195462galgeleg.startGame;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,7 +25,10 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -67,26 +71,25 @@ public class GetStartF extends AppCompatActivity implements View.OnClickListener
             //database
 
             plyerID = myAuth.getCurrentUser().getUid();
+
+            DocumentReference documentReference = firestore.collection("players").document(plyerID);
+            documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                    playerNameText.setText(value.getString("name"));
+//                    int x = (int)  value.get("score");
+//                    score_text.setText( x + "");
+                }
+            });
+
+
+
+
+
+
+
         }
-
-      /*  documentReference = firestore.collection("players").document(plyerID);
-        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                int s = Integer.parseInt(value.getString("score"));
-                score = s;
-                Toast.makeText(getApplicationContext(),"socre" + score,Toast.LENGTH_SHORT).show();
-
-
-                 }
-
-        });
-
-       */
-
-
-
-
 
 
 
