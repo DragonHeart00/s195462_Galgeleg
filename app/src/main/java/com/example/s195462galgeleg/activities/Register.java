@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,17 +16,16 @@ import android.widget.Toast;
 
 import com.example.s195462galgeleg.MainActivity;
 import com.example.s195462galgeleg.R;
-import com.example.s195462galgeleg.database.PlayerViewModel;
-import com.example.s195462galgeleg.model.Player;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Register extends AppCompatActivity {
 
@@ -34,6 +34,10 @@ public class Register extends AppCompatActivity {
     private TextView loginBtn;
     private ProgressBar progressBar;
     private FirebaseAuth myAuth;
+
+    private FirebaseFirestore firestore;
+    private String plyerID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +50,14 @@ public class Register extends AppCompatActivity {
         registerButton = findViewById(R.id.register_button);
         progressBar = findViewById(R.id.progressBar);
         myAuth =FirebaseAuth.getInstance();
+        firestore=FirebaseFirestore.getInstance();
 
-
-        Date c = Calendar.getInstance().getTime();
+       /* Date c = Calendar.getInstance().getTime();
         System.out.println("Current time => " + c);
         SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
         String formattedDate = df.format(c);
+
+        */
 
         //check if player already login or not
         if (myAuth.getCurrentUser() != null){
@@ -64,6 +70,8 @@ public class Register extends AppCompatActivity {
             public void onClick(View view) {
                 String myEmail = email.getText().toString().trim();
                 String myPassword = password.getText().toString().trim();
+                String playerName = userName.getText().toString();
+                int playerScore=200;
 
                 if (TextUtils.isEmpty(myEmail)){
                     email.setError("Email is not valid");
@@ -86,12 +94,38 @@ public class Register extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
 //                          Toast.makeText(getApplicationContext(),"User Created" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
+                            plyerID = myAuth.getCurrentUser().getUid();
+
+                            DocumentReference documentReference = firestore.collection("players").document(plyerID);
+                            Map<String, Object> players = new HashMap<>();
+                            players.put("name", playerName);
+                            players.put("email", myEmail);
+                            players.put("score", playerScore);
+                            documentReference.set(players).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d("TAG","onSuccess: User profile is created for " +plyerID );
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.d("TAG","onFailure: User profile is not created " +e.toString() );
+                                }
+                            });
+
+
+
+
+
                             Intent intent = new Intent(Register.this, MainActivity.class);
                             startActivity(intent);
                             finish();
-                            Player player = new Player(myEmail, formattedDate);
+                           /* Player player = new Player(myEmail, formattedDate);
                             PlayerViewModel playerViewModel = new PlayerViewModel(getApplication());
                             playerViewModel.insert(player);
+
+                            */
 
                         }else {
                             Toast.makeText(Register.this,"User not Created" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

@@ -1,5 +1,7 @@
 package com.example.s195462galgeleg.activities;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +18,17 @@ import android.widget.Toast;
 
 import com.example.s195462galgeleg.R;
 import com.example.s195462galgeleg.logic.Galgelogik;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GetStartActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -28,7 +41,15 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
     private TextView playerNameText;
     private ImageButton restart,hint;
     private int count = 0;
-    private int score = 200;
+    private int score;
+    DocumentReference documentReference;
+
+
+
+    //database
+    private FirebaseAuth myAuth;
+    private FirebaseFirestore firestore;
+    private String plyerID;
 
 
 
@@ -41,6 +62,34 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
         show_first_char=findViewById(R.id.show_char);
         restart=findViewById(R.id.change_word);
         hint=findViewById(R.id.hint_word);
+
+
+        //database
+        myAuth =FirebaseAuth.getInstance();
+        firestore=FirebaseFirestore.getInstance();
+
+        plyerID = myAuth.getCurrentUser().getUid();
+
+
+      /*  documentReference = firestore.collection("players").document(plyerID);
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                int s = Integer.parseInt(value.getString("score"));
+                score = s;
+                Toast.makeText(getApplicationContext(),"socre" + score,Toast.LENGTH_SHORT).show();
+
+
+                 }
+
+        });
+
+       */
+
+
+
+
+
 
 
         hint.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +120,15 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
         // guss word ******
         guessTekst.setText(galgelogik.getSynligtOrd());
         galgelegImage.setVisibility(galgelegImage.INVISIBLE);
+
+
+
+
+
+
+
+
+
 
     }
 
@@ -107,31 +165,31 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
 
             case 1:
                 galgelegImage.setImageResource(R.drawable.galge);
-                score = 150;
+                score = score - 10;
                 break;
             case 2:
                 galgelegImage.setImageResource(R.drawable.forkert1);
-                score = 100;
+                score = score - 10;
                 break;
             case 3:
                 galgelegImage.setImageResource(R.drawable.forkert2);
-                score = 50;
+                score = score - 10;
                 break;
             case 4:
                 galgelegImage.setImageResource(R.drawable.forkert3);
-                score = 25;
+                score = score - 10;
                 break;
             case 5:
                 galgelegImage.setImageResource(R.drawable.forkert4);
-                score = 10;
+                score = score - 10;
                 break;
             case 6:
                 galgelegImage.setImageResource(R.drawable.forkert5);
-                score = 15;
+                score = score - 10;
                 break;
             case 7:
                 galgelegImage.setImageResource(R.drawable.forkert6);
-                score = 5;
+                score = score - 10;
                 break;
             default:
                 galgelegImage.setImageResource(R.drawable.galge);
@@ -143,9 +201,25 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
             //Send user to WinnerActivity
             Intent intent = new Intent(this, WinnerActivity.class);
             intent.putExtra("AntalForkerteBogstaver",galgelogik.getAntalForkerteBogstaver()+"");
-            intent.putExtra("your_score","score:"+ score +"");
+            intent.putExtra("yScore",score);
             startActivity(intent);
             finish();
+
+            documentReference = firestore.collection("players").document(plyerID);
+            Map<String, Object> players = new HashMap<>();
+            players.put("score", score);
+
+            documentReference.update(players).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                }
+            });
 
 
         } else if (galgelogik.erSpilletTabt()){
@@ -153,12 +227,13 @@ public class GetStartActivity extends AppCompatActivity implements View.OnClickL
             Toast.makeText(getApplicationContext(),galgelogik.getOrdet(),Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, LoserActivity.class);
             intent.putExtra("data",galgelogik.getOrdet());
-            intent.putExtra("your_score","score:"+ score +"");
+            intent.putExtra("yScore",score +"");
             startActivity(intent);
             finish();
 
 
         }
+
     }
 
     @Override

@@ -2,14 +2,10 @@ package com.example.s195462galgeleg.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Animation;
@@ -22,18 +18,11 @@ import android.widget.Toast;
 
 import com.example.s195462galgeleg.MainActivity;
 import com.example.s195462galgeleg.R;
-import com.example.s195462galgeleg.database.AppDatabase;
-import com.example.s195462galgeleg.database.PlayerViewModel;
-import com.example.s195462galgeleg.model.Player;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -86,37 +75,7 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                String str = email.getText().toString();
-                if (TextUtils.isEmpty(str)) {
-                    email.setError("savnet mig!");
-                    return;
-                }else {
-                    Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                    intent.putExtra("name",str);
-                    startActivity(intent);
-                    //must change
-                    Player player = new Player(str, formattedDate);
-                    PlayerViewModel playerViewModel = new PlayerViewModel(getApplication());
-                    playerViewModel.insert(player);
-                }
-
-                progressBar.setVisibility(View.VISIBLE);
-
-
-            }
-        });
-
-         */
-        Date c = Calendar.getInstance().getTime();
-        System.out.println("Current time => " + c);
-        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
-        String formattedDate = df.format(c);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,9 +109,7 @@ public class WelcomeActivity extends AppCompatActivity {
                             Toast.makeText(WelcomeActivity.this,"Log in Successfully", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
                             startActivity(intent);
-                            Player player = new Player(myEmail, formattedDate);
-                            PlayerViewModel playerViewModel = new PlayerViewModel(getApplication());
-                            playerViewModel.insert(player);
+
 
                         }else {
                             Toast.makeText(WelcomeActivity.this,"Error !!!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

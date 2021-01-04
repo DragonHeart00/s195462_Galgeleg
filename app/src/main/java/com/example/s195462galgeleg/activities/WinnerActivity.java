@@ -1,5 +1,6 @@
 package com.example.s195462galgeleg.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,12 +13,25 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.s195462galgeleg.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class WinnerActivity extends AppCompatActivity {
 
     private Button play_again;
     private TextView wrongChar, score;
     private Animation button_animation ;
+    private FirebaseAuth myAuth;
+    private FirebaseFirestore firestore;
+    private String plyerID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +41,10 @@ public class WinnerActivity extends AppCompatActivity {
         wrongChar=findViewById(R.id.textView);
         score = findViewById(R.id.score_text);
         play_again=findViewById(R.id.play_again);
+
+
+        myAuth =FirebaseAuth.getInstance();
+        firestore=FirebaseFirestore.getInstance();
 
 
         //load animation
@@ -54,8 +72,19 @@ public class WinnerActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         String data = bundle.getString("AntalForkerteBogstaver");
-        String my_score = bundle.getString("your_score");
+        String my_score = bundle.getString("yScore");
         wrongChar.setText("Antal Forkerte Bogstaver var "+data + " Bogstaver");
-        score.setText("du har fået  "+my_score + " point");
+        score.setText(my_score + "");
+        //int my_score = getIntent().getIntExtra("yScore", 0);;
+
+       // int i=Integer.parseInt(my_score);
+
+
+
+
+
+
+
+
     }
 }
