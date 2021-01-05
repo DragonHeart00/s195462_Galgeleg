@@ -43,7 +43,7 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
     private ImageView galgelegImage;
     private ImageButton restart,hint;
     private int count = 0;
-    private int score;
+
     private DocumentReference documentReference;
     private FirebaseUser firebaseUser;
     //database
@@ -53,7 +53,9 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
 
     //name and score
     private TextView playerNameText, score_text;
-
+    //score
+    private long startPoint, endTime;
+    private int time, score;
 
 
 
@@ -72,7 +74,7 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
         firebaseUser = myAuth.getCurrentUser();
 
 
-
+        startPoint = System.currentTimeMillis();
 
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -190,15 +192,18 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
         if (logicD.erSpilletVundet()) {
             //Send user to WinnerActivity
 
-            if (logicD.getAntalForkerteBogstaver() == 0){
-                score= 400;
-                score+=score * 2 + logicD.getOrdet().length();
+            endTime = System.currentTimeMillis();
+            time = Math.round(((endTime - startPoint)/1000));
 
-            }else {
-                score+=200;
-                score+= logicD.getOrdet().length() * logicD.getAntalForkerteBogstaver();
-
+            int letter = logicD.getAntalForkerteBogstaver()*25;
+            int tid = (time*100)/logicD.getOrdet().length();
+            score = (1000 - letter - tid);
+            if (score < 0) {
+                score = 0;
+                score += logicD.getOrdet().length()*1000;
             }
+
+
             if (firebaseUser != null) {
                 //database
 
@@ -218,6 +223,8 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
                     }
                 });
             }
+
+
             Toast.makeText(getApplicationContext(),"score:" +score,Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, WinnerActivity.class);
             intent.putExtra("AntalForkerteBogstaver", logicD.getAntalForkerteBogstaver()+"");
@@ -227,31 +234,6 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
 
         } else if (logicD.erSpilletTabt()){
             //Send user to LoserActivity
-            score+= logicD.getOrdet().length() + logicD.getAntalForkerteBogstaver();
-
-
-            if (firebaseUser != null) {
-                //database
-
-                documentReference = firestore.collection("players").document(plyerID);
-                Map<String, Object> players = new HashMap<>();
-                players.put("score", score + "");
-
-                documentReference.update(players).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                    }
-                });
-            }
-
-
-
             Intent intent = new Intent(this, LoserActivity.class);
             intent.putExtra("data", logicD.getOrdet());
             intent.putExtra("yScore",score +"");

@@ -42,7 +42,6 @@ public class GetStartT extends AppCompatActivity implements View.OnClickListener
     private TextView playerNameText;
     private ImageButton restart,hint;
     private int count = 0;
-    private int score;
     private DocumentReference documentReference;
     private FirebaseUser firebaseUser;
     //database
@@ -50,7 +49,9 @@ public class GetStartT extends AppCompatActivity implements View.OnClickListener
     private FirebaseFirestore firestore;
     private String plyerID;
 
-
+    //score
+    private long startPoint, endTime;
+    private int time, score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +65,7 @@ public class GetStartT extends AppCompatActivity implements View.OnClickListener
         myAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
         firebaseUser = myAuth.getCurrentUser();
-
+        startPoint = System.currentTimeMillis();
         if (firebaseUser != null) {
             //database
 
@@ -233,31 +234,6 @@ public class GetStartT extends AppCompatActivity implements View.OnClickListener
 
         } else if (logicT.erSpilletTabt()){
             //Send user to LoserActivity
-            score+= logicT.getOrdet().length() + logicT.getAntalForkerteBogstaver();
-
-
-            if (firebaseUser != null) {
-                //database
-
-                documentReference = firestore.collection("players").document(plyerID);
-                Map<String, Object> players = new HashMap<>();
-                players.put("score", score +"");
-
-                documentReference.update(players).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                    }
-                });
-            }
-
-
-
             Intent intent = new Intent(this, LoserActivity.class);
             intent.putExtra("data", logicT.getOrdet());
             intent.putExtra("yScore",score +"");
