@@ -9,21 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.S195462Galgeleg">
-        <activity android:name=".startGame.GetStartL"></activity>
-        <activity android:name=".startGame.GetStartF" />
-        <activity android:name=".startGame.GetStartD" />
-        <activity android:name=".activities.Register" />
-        <activity android:name=".activities.WelcomeActivity">
+        <activity android:name=".startGame.GetStartL"  android:screenOrientation="portrait"></activity>
+        <activity android:name=".startGame.GetStartF"  android:screenOrientation="portrait"/>
+        <activity android:name=".startGame.GetStartD"  android:screenOrientation="portrait"/>
+        <activity android:name=".activities.Register"  android:screenOrientation="portrait"/>
+        <activity android:name=".activities.WelcomeActivity"
+                  android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.LoserActivity" />
-        <activity android:name=".activities.WinnerActivity" />
-        <activity android:name=".startGame.GetStartT" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activities.LoserActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activities.WinnerActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".startGame.GetStartT" android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
