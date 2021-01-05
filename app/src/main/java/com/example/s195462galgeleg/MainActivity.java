@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+
+import com.example.s195462galgeleg.activities.WelcomeActivity;
 import com.example.s195462galgeleg.controller.ViewPagerAdapter;
 import com.example.s195462galgeleg.fragments.GuestFragment;
 import com.example.s195462galgeleg.fragments.RuleView;
@@ -77,18 +80,12 @@ public class MainActivity extends AppCompatActivity {
         //run "home fragment" first
         viewPager.setCurrentItem(1);
     }
-
     @Override
     public void onBackPressed() {
-        goBack();
-    }
-
-    private void goBack(){
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Afslutning")
                 .setMessage("Er du sikker på, at du vil vende tilbage til velkomstsiden?")
-                .setCancelable(false)
                 .setPositiveButton("Ja", new DialogInterface.OnClickListener()
                 {
                     @Override

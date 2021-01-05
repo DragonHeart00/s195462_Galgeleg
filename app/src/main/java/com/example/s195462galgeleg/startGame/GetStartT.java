@@ -192,16 +192,18 @@ public class GetStartT extends AppCompatActivity implements View.OnClickListener
         if (logicT.erSpilletVundet()) {
             //Send user to WinnerActivity
 
+            endTime = System.currentTimeMillis();
+            time = Math.round(((endTime - startPoint)/1000));
 
-            if (logicT.getAntalForkerteBogstaver() == 0){
-                score= 400;
-                score+=score * 2 + logicT.getOrdet().length();
-
-            }else {
-                score+=200;
-                score+= logicT.getOrdet().length() * logicT.getAntalForkerteBogstaver();
-
+            int letter = logicT.getAntalForkerteBogstaver()*25;
+            int tid = (time*100)/logicT.getOrdet().length();
+            score = (1000 - letter - tid);
+            if (score < 0) {
+                score = 0;
+                score += logicT.getOrdet().length()*1000;
             }
+
+
             if (firebaseUser != null) {
                 //database
 
@@ -221,7 +223,7 @@ public class GetStartT extends AppCompatActivity implements View.OnClickListener
                     }
                 });
             }
-            Toast.makeText(getApplicationContext(),"score:" +score,Toast.LENGTH_SHORT).show();
+
             Intent intent = new Intent(this, WinnerActivity.class);
             intent.putExtra("AntalForkerteBogstaver", logicT.getAntalForkerteBogstaver()+"");
             intent.putExtra("yScore",score);

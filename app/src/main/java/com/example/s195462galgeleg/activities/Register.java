@@ -58,7 +58,7 @@ public class Register extends AppCompatActivity {
 
         //check if player already login or not
         if (myAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            startActivity(new Intent(Register.this, MainActivity.class));
             finish();
         }
 

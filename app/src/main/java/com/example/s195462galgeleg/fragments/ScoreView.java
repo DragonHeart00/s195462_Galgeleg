@@ -80,7 +80,7 @@ public class ScoreView extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull PlayerViewHolder holder, int position, @NonNull Player model) {
                 holder.name.setText(model.getName());
-                holder.score.setText("score: " + model.getScore() + " $");
+                holder.score.setText("score: " + model.getScore());
             }
         };
         recyclerView .setHasFixedSize(true);

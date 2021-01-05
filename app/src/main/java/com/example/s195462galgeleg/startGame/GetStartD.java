@@ -225,7 +225,6 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
             }
 
 
-            Toast.makeText(getApplicationContext(),"score:" +score,Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, WinnerActivity.class);
             intent.putExtra("AntalForkerteBogstaver", logicD.getAntalForkerteBogstaver()+"");
             intent.putExtra("yScore",score);
@@ -247,21 +246,8 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void onBackPressed() {
-        new AlertDialog.Builder(this)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Afslutning")
-                .setMessage("Er du sikker på, at du vil annullere spillet?")
-                .setPositiveButton("Ja", new DialogInterface.OnClickListener()
-                {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
 
-                    }
 
-                })
-                .setNegativeButton("Fortsæt", null)
-                .show();
     }
 
 

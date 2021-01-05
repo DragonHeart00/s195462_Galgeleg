@@ -227,7 +227,6 @@ public class GetStartL extends AppCompatActivity implements View.OnClickListener
                     }
                 });
             }
-            Toast.makeText(getApplicationContext(),"score:" +score,Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, WinnerActivity.class);
             intent.putExtra("AntalForkerteBogstaver", logicL.getAntalForkerteBogstaver()+"");
             intent.putExtra("yScore",score);
