@@ -14,7 +14,6 @@ import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.s195462galgeleg.R;
 import com.example.s195462galgeleg.activities.LoserActivity;
