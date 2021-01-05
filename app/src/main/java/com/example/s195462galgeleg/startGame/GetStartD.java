@@ -63,34 +63,15 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_get_start_t);
 
         playerNameText =findViewById(R.id.player_name);
-        score_text=findViewById(R.id.textView3);
+        score_text=findViewById(R.id.txt);
         show_first_char=findViewById(R.id.show_char);
         restart=findViewById(R.id.change_word);
         hint=findViewById(R.id.hint_word);
-        myAuth = FirebaseAuth.getInstance();
-        firestore = FirebaseFirestore.getInstance();
+        myAuth =FirebaseAuth.getInstance();
+        firestore=FirebaseFirestore.getInstance();
         firebaseUser = myAuth.getCurrentUser();
 
 
-        if (firebaseUser != null) {
-            //database
-
-            plyerID = myAuth.getCurrentUser().getUid();
-
-
-            DocumentReference documentReference = firestore.collection("players").document(plyerID);
-            documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
-                @Override
-                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-
-                    playerNameText.setText(value.getString("name"));
-//                    int x = (int)  value.get("score");
-//                    score_text.setText( x + "");
-                }
-            });
-
-
-        }
 
 
         hint.setOnClickListener(new View.OnClickListener() {
@@ -121,6 +102,30 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
         // guss word ******
         guessTekst.setText(logicD.getSynligtOrd());
         galgelegImage.setVisibility(galgelegImage.INVISIBLE);
+
+
+
+        if (firebaseUser != null) {
+            //database
+
+            plyerID = myAuth.getCurrentUser().getUid();
+
+
+            DocumentReference documentReference = firestore.collection("players").document(plyerID);
+            documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                    playerNameText.setText(value.getString("name"));
+
+//                    int x = (int)  value.get("score");
+//                    score_text.setText( x + "");
+                }
+            });
+
+
+        }
+
 
     }
 
@@ -199,7 +204,7 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
 
                 documentReference = firestore.collection("players").document(plyerID);
                 Map<String, Object> players = new HashMap<>();
-                players.put("score", score);
+                players.put("score", score +"");
 
                 documentReference.update(players).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -230,7 +235,7 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
 
                 documentReference = firestore.collection("players").document(plyerID);
                 Map<String, Object> players = new HashMap<>();
-                players.put("score", score);
+                players.put("score", score + "");
 
                 documentReference.update(players).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -246,7 +251,7 @@ public class GetStartD extends AppCompatActivity implements View.OnClickListener
             }
 
 
-            Toast.makeText(getApplicationContext(), logicD.getOrdet() + "\n score:" +score,Toast.LENGTH_SHORT).show();
+
             Intent intent = new Intent(this, LoserActivity.class);
             intent.putExtra("data", logicD.getOrdet());
             intent.putExtra("yScore",score +"");

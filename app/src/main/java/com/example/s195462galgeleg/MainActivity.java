@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       Toolbar toolbar = findViewById(R.id.tool_bar);
-       setSupportActionBar(toolbar);
+       //Toolbar toolbar = findViewById(R.id.tool_bar);
+       //setSupportActionBar(toolbar);
        firebaseAuth=FirebaseAuth.getInstance();
        firebaseUser = firebaseAuth.getCurrentUser();
 
@@ -70,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
             tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_rule);
             tabLayout.getTabAt(1).setIcon(R.drawable.ic_home);
             tabLayout.getTabAt(2).setIcon(R.drawable.ic_person);
+
+
+
         }
         //run "home fragment" first
         viewPager.setCurrentItem(1);

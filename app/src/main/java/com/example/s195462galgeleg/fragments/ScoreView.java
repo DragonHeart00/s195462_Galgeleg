@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,9 +19,17 @@ import com.example.s195462galgeleg.activities.WelcomeActivity;
 import com.example.s195462galgeleg.model.Player;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
+
+import java.util.concurrent.Executor;
 
 
 public class ScoreView extends Fragment {
@@ -28,11 +38,13 @@ public class ScoreView extends Fragment {
    private RecyclerView recyclerView;
 
    private Button logout;
+   //private TextView playerNameText, scorePlayer;
 
    private FirestoreRecyclerAdapter adapter;
 
    private FirebaseFirestore firebaseFirestore;
 
+   private FirebaseAuth myAuth;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,8 +57,9 @@ public class ScoreView extends Fragment {
 
 
 
-
+        myAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
+
 
 
         Query query = firebaseFirestore.collection("players");
@@ -87,11 +100,16 @@ public class ScoreView extends Fragment {
 
 
 
-
         return view;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
+
+
+    }
 
     private class PlayerViewHolder extends RecyclerView.ViewHolder{
 
@@ -102,17 +120,6 @@ public class ScoreView extends Fragment {
             name = itemView.findViewById(R.id.player_name);
             score = itemView.findViewById(R.id.score);
                     }
-
-
-
-
-
-
-
-
-
-
-
     }
 
     @Override
@@ -125,5 +132,11 @@ public class ScoreView extends Fragment {
     public void onStart() {
         super.onStart();
         adapter.startListening();
+
+
+
+
+
+
     }
 }

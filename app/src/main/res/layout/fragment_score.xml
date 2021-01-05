@@ -1,30 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="5dp"
     android:background="#0E1735"
     android:orientation="vertical"
     tools:context=".fragments.ScoreView">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerviewid"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
 
-    </androidx.recyclerview.widget.RecyclerView>
 
-    <Button
-        android:id="@+id/delete_all"
-        android:layout_width="102dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        android:background="@drawable/bt_background"
-        android:textColor="@color/white"
-        android:text="Log af"
-        android:layout_marginBottom="10dp"
-        android:textAllCaps="false" />
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_marginTop="5dp">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+       <androidx.recyclerview.widget.RecyclerView
+           android:id="@+id/recyclerviewid"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+       </androidx.recyclerview.widget.RecyclerView>
+
+       <Button
+           android:id="@+id/delete_all"
+           android:layout_width="102dp"
+           android:layout_height="wrap_content"
+           android:layout_gravity="bottom|center"
+           android:layout_marginBottom="16dp"
+           android:background="@drawable/bt_background"
+           android:text="Log af"
+           android:textAllCaps="false"
+           android:textColor="@color/white"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent" />
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

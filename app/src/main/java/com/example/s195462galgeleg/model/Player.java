@@ -3,7 +3,7 @@ package com.example.s195462galgeleg.model;
 public class Player {
 
     private String name,email;
-    private int score;
+    private String score;
 
     public Player() {
     }
@@ -22,11 +22,11 @@ public class Player {
         this.name = name;
     }
 
-    public int getScore() {
+    public String getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(String score) {
         this.score = score;
     }
 

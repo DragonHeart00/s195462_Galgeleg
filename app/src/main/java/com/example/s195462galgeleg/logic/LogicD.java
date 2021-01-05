@@ -14,14 +14,14 @@ public class LogicD {
     private boolean spilletErTabt;
 
     public LogicD() {
-//        muligeOrd.add("amurtiger");
-//        muligeOrd.add("kamel");
-//        muligeOrd.add("rotte");
-//        muligeOrd.add("chimpanse");
-//        muligeOrd.add("congopåfugl");
-//        muligeOrd.add("emu");
-//        muligeOrd.add("kattalemur");
-//        muligeOrd.add("løve");
+        muligeOrd.add("amurtiger");
+        muligeOrd.add("kamel");
+        muligeOrd.add("rotte");
+        muligeOrd.add("chimpanse");
+        muligeOrd.add("congopåfugl");
+        muligeOrd.add("emu");
+        muligeOrd.add("kattalemur");
+        muligeOrd.add("løve");
         muligeOrd.add("mara");
         startNytSpil();
     }

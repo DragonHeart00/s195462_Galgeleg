@@ -14,14 +14,14 @@ public class LogicL {
     private boolean spilletErTabt;
 
     public LogicL() {
-//        muligeOrd.add("albanien");
-//        muligeOrd.add("bahrain");
-//        muligeOrd.add("dominica");
-//        muligeOrd.add("egypten");
-//        muligeOrd.add("filippinerne");
-//        muligeOrd.add("guinea");
-//        muligeOrd.add("irland");
-//        muligeOrd.add("mexico");
+        muligeOrd.add("albanien");
+        muligeOrd.add("bahrain");
+        muligeOrd.add("dominica");
+        muligeOrd.add("egypten");
+        muligeOrd.add("filippinerne");
+        muligeOrd.add("guinea");
+        muligeOrd.add("irland");
+        muligeOrd.add("mexico");
         muligeOrd.add("qatar");
         startNytSpil();
     }

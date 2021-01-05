@@ -209,7 +209,7 @@ public class GetStartF extends AppCompatActivity implements View.OnClickListener
 
                 documentReference = firestore.collection("players").document(plyerID);
                 Map<String, Object> players = new HashMap<>();
-                players.put("score", score);
+                players.put("score", score +"");
 
                 documentReference.update(players).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -244,7 +244,7 @@ public class GetStartF extends AppCompatActivity implements View.OnClickListener
 
                 documentReference = firestore.collection("players").document(plyerID);
                 Map<String, Object> players = new HashMap<>();
-                players.put("score", score);
+                players.put("score", score +"");
 
                 documentReference.update(players).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -260,7 +260,7 @@ public class GetStartF extends AppCompatActivity implements View.OnClickListener
             }
 
 
-            Toast.makeText(getApplicationContext(), logicF.getOrdet() + "\n score:" +score,Toast.LENGTH_SHORT).show();
+
             Intent intent = new Intent(this, LoserActivity.class);
             intent.putExtra("data", logicF.getOrdet());
             intent.putExtra("yScore",score +"");

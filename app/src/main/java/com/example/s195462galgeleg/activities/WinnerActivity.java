@@ -1,5 +1,6 @@
 package com.example.s195462galgeleg.activities;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -14,17 +15,22 @@ import com.example.s195462galgeleg.MainActivity;
 import com.example.s195462galgeleg.R;
 import com.example.s195462galgeleg.startGame.GetStartT;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class WinnerActivity extends AppCompatActivity {
 
     private Button play_again;
-    private TextView wrongChar, score;
+    private TextView wrongChar, score, name;
     private Animation button_animation ;
     private FirebaseAuth myAuth;
     private FirebaseFirestore firestore;
     private String plyerID;
-
+    private FirebaseUser firebaseUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +39,33 @@ public class WinnerActivity extends AppCompatActivity {
         wrongChar=findViewById(R.id.textView);
         score = findViewById(R.id.score_text);
         play_again=findViewById(R.id.play_again);
+        name = findViewById(R.id.player_name_id);
 
 
         myAuth =FirebaseAuth.getInstance();
         firestore=FirebaseFirestore.getInstance();
+        firebaseUser = myAuth.getCurrentUser();
+
+        if (firebaseUser != null) {
+            //database
+
+            plyerID = myAuth.getCurrentUser().getUid();
+
+
+            DocumentReference documentReference = firestore.collection("players").document(plyerID);
+            documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                    name.setText("God "+value.getString("name") + ". Du har vundet");
+                    score.setText("Din Score: "+value.getString("score") );
+//                    int x = (int)  value.get("score");
+//                    score_text.setText( x + "");
+                }
+            });
+
+
+        }
 
 
         //load animation

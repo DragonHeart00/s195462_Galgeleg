@@ -68,7 +68,7 @@ public class Register extends AppCompatActivity {
                 String myEmail = email.getText().toString().trim();
                 String myPassword = password.getText().toString().trim();
                 String playerName = userName.getText().toString();
-                int playerScore = 0;
+                String playerScore = "0";
 
                 if (TextUtils.isEmpty(myEmail)){
                     email.setError("Email is not valid");
@@ -82,7 +82,6 @@ public class Register extends AppCompatActivity {
                     userName.setError("not valid");
                     return;
                 }
-
 
                 if (myPassword.length() < 6){
                     password.setError("Password must be >= 6 char");

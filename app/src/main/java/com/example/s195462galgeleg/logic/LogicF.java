@@ -14,15 +14,15 @@ public class LogicF {
     private boolean spilletErTabt;
 
     public LogicF() {
-//        muligeOrd.add("abrikos");
-//        muligeOrd.add("blåbær");
-//        muligeOrd.add("fersken");
-//        muligeOrd.add("kirsebær");
-//        muligeOrd.add("mango");
-//        muligeOrd.add("pære");
-//        muligeOrd.add("solbær");
+        muligeOrd.add("abrikos");
+        muligeOrd.add("blåbær");
+        muligeOrd.add("fersken");
+        muligeOrd.add("kirsebær");
+        muligeOrd.add("mango");
+        muligeOrd.add("pære");
+        muligeOrd.add("solbær");
         muligeOrd.add("vindruer");
-//        muligeOrd.add("æble");
+        muligeOrd.add("æble");
         startNytSpil();
     }
 

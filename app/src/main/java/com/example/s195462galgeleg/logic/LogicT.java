@@ -14,15 +14,15 @@ public class LogicT {
     private boolean spilletErTabt;
 
     public LogicT() {
-//        muligeOrd.add("bil");
-//        muligeOrd.add("computer");
-//        muligeOrd.add("programmering");
-//        muligeOrd.add("motorvej");
-//        muligeOrd.add("busrute");
-//        muligeOrd.add("gangsti");
-//        muligeOrd.add("skovsnegl");
-          muligeOrd.add("solsort");
-//        muligeOrd.add("tyve");
+        muligeOrd.add("bil");
+        muligeOrd.add("computer");
+        muligeOrd.add("programmering");
+        muligeOrd.add("motorvej");
+        muligeOrd.add("busrute");
+        muligeOrd.add("gangsti");
+        muligeOrd.add("skovsnegl");
+        muligeOrd.add("solsort");
+        muligeOrd.add("tyve");
         startNytSpil();
     }
 
