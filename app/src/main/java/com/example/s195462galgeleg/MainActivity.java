@@ -7,6 +7,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.s195462galgeleg.activities.WelcomeActivity;
 import com.example.s195462galgeleg.controller.ViewPagerAdapter;
@@ -21,8 +22,10 @@ public class MainActivity extends AppCompatActivity {
     private ViewPagerAdapter viewPagerAdapter;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    FirebaseAuth firebaseAuth ;
-    FirebaseUser firebaseUser;
+    private FirebaseAuth firebaseAuth ;
+    private FirebaseUser firebaseUser;
+    private long backPr;
+    private Toast backToast;
 
 
     @Override
@@ -80,22 +83,42 @@ public class MainActivity extends AppCompatActivity {
         //run "home fragment" first
         viewPager.setCurrentItem(1);
     }
+//    @Override
+//    public void onBackPressed() {
+//        new AlertDialog.Builder(this)
+//                .setIcon(android.R.drawable.ic_dialog_alert)
+//                .setTitle("Afslutning")
+//                .setMessage("Er du sikker på, at du vil vende tilbage til velkomstsiden?")
+//                .setPositiveButton("Ja", new DialogInterface.OnClickListener()
+//                {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        finish();
+//
+//                    }
+//
+//                })
+//                .setNegativeButton("Nej", null)
+//                .show();
+//    }
+
+
     @Override
     public void onBackPressed() {
-        new AlertDialog.Builder(this)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Afslutning")
-                .setMessage("Er du sikker på, at du vil vende tilbage til velkomstsiden?")
-                .setPositiveButton("Ja", new DialogInterface.OnClickListener()
-                {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
 
-                    }
 
-                })
-                .setNegativeButton("Nej", null)
-                .show();
+
+
+        if (backPr + 2000 > System.currentTimeMillis()) {
+            backToast.cancel();
+            super.onBackPressed();
+            return;
+        }else {
+            backToast =Toast.makeText(getBaseContext(),"Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+
+        backPr = System.currentTimeMillis();
+
     }
 }

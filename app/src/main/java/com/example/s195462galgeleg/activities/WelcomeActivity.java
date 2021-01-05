@@ -105,6 +105,7 @@ public class WelcomeActivity extends AppCompatActivity {
                             Toast.makeText(WelcomeActivity.this,"Log in Successfully", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
                             startActivity(intent);
+                            finish();
 
 
                         }else {
@@ -125,6 +126,7 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(WelcomeActivity.this, Register.class));
+                finish();
             }
         });
     }
