@@ -119,6 +119,7 @@ public class Register extends AppCompatActivity {
 
 
                             Intent intent = new Intent(Register.this, MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                             finish();
                            /* Player player = new Player(myEmail, formattedDate);
